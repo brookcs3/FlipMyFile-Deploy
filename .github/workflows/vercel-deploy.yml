@@ -1,1 +1,14 @@
-# Intentionally empty
+name: Disabled Vercel Deploy Workflow
+
+# This workflow is intentionally disabled
+
+on:
+  # Disable all triggers
+  workflow_dispatch: {}
+
+jobs:
+  disabled:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do nothing
+        run: echo "This workflow is disabled"

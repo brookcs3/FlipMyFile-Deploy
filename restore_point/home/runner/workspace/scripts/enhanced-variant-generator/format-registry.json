@@ -1,0 +1,105 @@
+{
+  "formats": {
+    "heic": {
+      "name": "HEIC",
+      "description": "High Efficiency Image Container",
+      "variations": ["HEIC", "heic", "Heic"],
+      "extensions": [".heic", ".HEIC"],
+      "mimeTypes": ["image/heic"]
+    },
+    "jpg": {
+      "name": "JPG",
+      "description": "Joint Photographic Experts Group",
+      "variations": ["JPG", "jpg", "Jpg", "JPEG", "jpeg", "Jpeg"],
+      "extensions": [".jpg", ".jpeg", ".JPG", ".JPEG"],
+      "mimeTypes": ["image/jpeg", "image/jpg"]
+    },
+    "webp": {
+      "name": "WebP",
+      "description": "Google WebP format",
+      "variations": ["WebP", "webp", "WEBP"],
+      "extensions": [".webp", ".WEBP"],
+      "mimeTypes": ["image/webp"]
+    },
+    "png": {
+      "name": "PNG",
+      "description": "Portable Network Graphics",
+      "variations": ["PNG", "png", "Png"],
+      "extensions": [".png", ".PNG"],
+      "mimeTypes": ["image/png"]
+    },
+    "avi": {
+      "name": "AVI",
+      "description": "Audio Video Interleave",
+      "variations": ["AVI", "avi", "Avi"],
+      "extensions": [".avi", ".AVI"],
+      "mimeTypes": ["video/x-msvideo", "video/avi"]
+    },
+    "mp4": {
+      "name": "MP4",
+      "description": "MPEG-4 Part 14",
+      "variations": ["MP4", "mp4", "Mp4"],
+      "extensions": [".mp4", ".MP4"],
+      "mimeTypes": ["video/mp4"]
+    }
+  },
+  "conversionModes": {
+    "heicToJpg": {
+      "name": "HEIC to JPG",
+      "description": "Convert HEIC images to JPG format",
+      "source": "heic",
+      "target": "jpg",
+      "namingVariations": [
+        "HEICFlip",
+        "heicflip",
+        "Heicflip",
+        "HEIC Flip",
+        "heic flip",
+        "Heic Flip",
+        "convertHeicToJpg",
+        "HeicToJpgConverter",
+        "heic-to-jpg",
+        "heic-dropzone",
+        "convert-heic-button"
+      ]
+    },
+    "webpToPng": {
+      "name": "WebP to PNG",
+      "description": "Convert WebP images to PNG format",
+      "source": "webp",
+      "target": "png",
+      "namingVariations": [
+        "WebPFlip",
+        "webpflip",
+        "Webpflip",
+        "WebP Flip",
+        "webp flip",
+        "Webp Flip",
+        "convertWebpToPng",
+        "WebpToPngConverter",
+        "webp-to-png",
+        "webp-dropzone",
+        "convert-webp-button"
+      ]
+    },
+    "aviToMp4": {
+      "name": "AVI to MP4",
+      "description": "Convert AVI videos to MP4 format",
+      "source": "avi",
+      "target": "mp4",
+      "namingVariations": [
+        "AVIFlip",
+        "aviflip",
+        "Aviflip",
+        "AVI Flip",
+        "avi flip",
+        "Avi Flip",
+        "convertAviToMp4",
+        "AviToMp4Converter",
+        "avi-to-mp4",
+        "avi-dropzone",
+        "convert-avi-button"
+      ]
+    }
+  }
+}

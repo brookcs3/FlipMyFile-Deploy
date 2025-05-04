@@ -1,0 +1,22 @@
+{
+  "name": "flip-converters",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:heicflip": "npm run dev --workspace=packages/heicflip",
+    "dev:jpgflip": "npm run dev --workspace=packages/jpgflip",
+    "build:all": "node scripts/build-all.js",
+    "build:heicflip": "npm run build --workspace=packages/heicflip",
+    "build:jpgflip": "npm run build --workspace=packages/jpgflip",
+    "create-variant": "node scripts/create-variant.js",
+    "dev:testflip": "npm run dev --workspace=packages/testflip",
+    "build:testflip": "npm run build --workspace=packages/testflip"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3"
+  }
+}

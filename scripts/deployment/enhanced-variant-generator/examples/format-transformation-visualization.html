@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Format Transformation System</title>
+  <style>
+    :root {
+      --heic-color: #FF8C00;
+      --jpg-color: #1E90FF;
+      --webp-color: #8A2BE2;
+      --png-color: #2E8B57;
+      --avi-color: #CD5C5C;
+      --mp4-color: #20B2AA;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+      text-align: center;
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    .transformation-system {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .formats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .format-card {
+      width: 150px;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .format-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .format-header {
+      height: 60px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    .format-body {
+      flex: 1;
+      padding: 15px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .format-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .format-name {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .format-ext {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Format specific styles */
+    .heic .format-header { background-color: var(--heic-color); }
+    .jpg .format-header { background-color: var(--jpg-color); }
+    .webp .format-header { background-color: var(--webp-color); }
+    .png .format-header { background-color: var(--png-color); }
+    .avi .format-header { background-color: var(--avi-color); }
+    .mp4 .format-header { background-color: var(--mp4-color); }
+
+    .heic .format-icon { background-color: var(--heic-color); border-radius: 8px; }
+    .jpg .format-icon { background-color: var(--jpg-color); }
+    .webp .format-icon { background-color: var(--webp-color); border-radius: 50%; }
+    .png .format-icon { background-color: var(--png-color); }
+    .avi .format-icon { background-color: var(--avi-color); transform: rotate(45deg); }
+    .mp4 .format-icon { background-color: var(--mp4-color); border-radius: 8px; }
+
+    /* Conversion visualization */
+    .conversion-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .conversion-card {
+      width: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .conversion-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .conversion-header {
+      height: 60px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    .conversion-body {
+      padding: 20px;
+      background-color: white;
+    }
+
+    .conversion-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .conversion-from-icon,
+    .conversion-to-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .conversion-arrow {
+      margin: 0 15px;
+      font-size: 24px;
+      color: #666;
+    }
+
+    .conversion-name {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .conversion-description {
+      color: #666;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Conversion specific styles */
+    .heic-to-jpg .conversion-header { 
+      background: linear-gradient(135deg, var(--heic-color) 0%, var(--jpg-color) 100%);
+    }
+    .heic-to-webp .conversion-header { 
+      background: linear-gradient(135deg, var(--heic-color) 0%, var(--webp-color) 100%);
+    }
+    .webp-to-png .conversion-header { 
+      background: linear-gradient(135deg, var(--webp-color) 0%, var(--png-color) 100%);
+    }
+    .avi-to-mp4 .conversion-header { 
+      background: linear-gradient(135deg, var(--avi-color) 0%, var(--mp4-color) 100%);
+    }
+
+    /* Architecture visualization */
+    .architecture-diagram {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .layer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .layer-title {
+      width: 150px;
+      text-align: right;
+      padding-right: 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-right: 2px solid #ddd;
+    }
+
+    .layer-components {
+      flex: 1;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-left: 15px;
+    }
+
+    .component {
+      background-color: #e9ecef;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .formats-container, .conversion-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .conversion-card {
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .layer {
+        flex-direction: column;
+      }
+
+      .layer-title {
+        width: auto;
+        text-align: left;
+        padding-right: 0;
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+      }
+
+      .layer-components {
+        padding-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>HEICFlip Format Transformation System</h1>
+  <p class="description">
+    A PIL-inspired architecture for loading, transforming, and saving different file formats<br>
+    with dynamic visual identity transformation between variants.
+  </p>
+
+  <div class="transformation-system">
+    <!-- Supported Formats Section -->
+    <div class="section">
+      <h2>Supported Formats</h2>
+      <div class="formats-container">
+        <!-- HEIC Format -->
+        <div class="format-card heic">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">HEIC</div>
+            <div class="format-ext">.heic, .heif</div>
+          </div>
+        </div>
+
+        <!-- JPEG Format -->
+        <div class="format-card jpg">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">JPEG</div>
+            <div class="format-ext">.jpg, .jpeg</div>
+          </div>
+        </div>
+
+        <!-- WebP Format -->
+        <div class="format-card webp">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">WebP</div>
+            <div class="format-ext">.webp</div>
+          </div>
+        </div>
+
+        <!-- PNG Format -->
+        <div class="format-card png">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">PNG</div>
+            <div class="format-ext">.png</div>
+          </div>
+        </div>
+
+        <!-- AVI Format -->
+        <div class="format-card avi">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">AVI</div>
+            <div class="format-ext">.avi</div>
+          </div>
+        </div>
+
+        <!-- MP4 Format -->
+        <div class="format-card mp4">
+          <div class="format-header">Format</div>
+          <div class="format-body">
+            <div class="format-icon"></div>
+            <div class="format-name">MP4</div>
+            <div class="format-ext">.mp4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conversion Modes Section -->
+    <div class="section">
+      <h2>Conversion Modes</h2>
+      <div class="conversion-container">
+        <!-- HEIC to JPEG Conversion -->
+        <div class="conversion-card heic-to-jpg">
+          <div class="conversion-header">Conversion</div>
+          <div class="conversion-body">
+            <div class="conversion-icons">
+              <div class="conversion-from-icon heic format-icon"></div>
+              <div class="conversion-arrow">→</div>
+              <div class="conversion-to-icon jpg format-icon"></div>
+            </div>
+            <div class="conversion-name">HEIC to JPEG Converter</div>
+            <div class="conversion-description">Convert HEIC images to JPEG format</div>
+          </div>
+        </div>
+
+        <!-- HEIC to WebP Conversion -->
+        <div class="conversion-card heic-to-webp">
+          <div class="conversion-header">Conversion</div>
+          <div class="conversion-body">
+            <div class="conversion-icons">
+              <div class="conversion-from-icon heic format-icon"></div>
+              <div class="conversion-arrow">→</div>
+              <div class="conversion-to-icon webp format-icon"></div>
+            </div>
+            <div class="conversion-name">HEIC to WebP Converter</div>
+            <div class="conversion-description">Convert HEIC images to WebP format</div>
+          </div>
+        </div>
+
+        <!-- WebP to PNG Conversion -->
+        <div class="conversion-card webp-to-png">
+          <div class="conversion-header">Conversion</div>
+          <div class="conversion-body">
+            <div class="conversion-icons">
+              <div class="conversion-from-icon webp format-icon"></div>
+              <div class="conversion-arrow">→</div>
+              <div class="conversion-to-icon png format-icon"></div>
+            </div>
+            <div class="conversion-name">WebP to PNG Converter</div>
+            <div class="conversion-description">Convert WebP images to PNG format</div>
+          </div>
+        </div>
+
+        <!-- AVI to MP4 Conversion -->
+        <div class="conversion-card avi-to-mp4">
+          <div class="conversion-header">Conversion</div>
+          <div class="conversion-body">
+            <div class="conversion-icons">
+              <div class="conversion-from-icon avi format-icon"></div>
+              <div class="conversion-arrow">→</div>
+              <div class="conversion-to-icon mp4 format-icon"></div>
+            </div>
+            <div class="conversion-name">AVI to MP4 Converter</div>
+            <div class="conversion-description">Convert AVI videos to MP4 format</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- System Architecture Section -->
+    <div class="section">
+      <h2>System Architecture</h2>
+      <div class="architecture-diagram">
+        <!-- Registry Layer -->
+        <div class="layer">
+          <div class="layer-title">Registry Layer</div>
+          <div class="layer-components">
+            <div class="component">Format Registry</div>
+            <div class="component">Visual Identity Registry</div>
+            <div class="component">Format Manager</div>
+          </div>
+        </div>
+
+        <!-- Loader Layer -->
+        <div class="layer">
+          <div class="layer-title">Loader Layer</div>
+          <div class="layer-components">
+            <div class="component">BaseLoader</div>
+            <div class="component">HeicLoader</div>
+            <div class="component">JpegLoader</div>
+            <div class="component">WebPLoader</div>
+            <div class="component">AviLoader</div>
+          </div>
+        </div>
+
+        <!-- Transformer Layer -->
+        <div class="layer">
+          <div class="layer-title">Transformer Layer</div>
+          <div class="layer-components">
+            <div class="component">Internal Representation</div>
+            <div class="component">Color Transformation</div>
+            <div class="component">Format Adaptation</div>
+          </div>
+        </div>
+
+        <!-- Encoder Layer -->
+        <div class="layer">
+          <div class="layer-title">Encoder Layer</div>
+          <div class="layer-components">
+            <div class="component">BaseEncoder</div>
+            <div class="component">JpegEncoder</div>
+            <div class="component">WebPEncoder</div>
+            <div class="component">PngEncoder</div>
+            <div class="component">Mp4Encoder</div>
+          </div>
+        </div>
+
+        <!-- Output Layer -->
+        <div class="layer">
+          <div class="layer-title">Output Layer</div>
+          <div class="layer-components">
+            <div class="component">FileOutput</div>
+            <div class="component">BlobOutput</div>
+            <div class="component">DownloadManager</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li><strong>Format Detection:</strong> Automatic detection of file formats based on extensions</li>
+        <li><strong>Open/Save Architecture:</strong> PIL-inspired approach to loading and saving files</li>
+        <li><strong>Visual Identity:</strong> Consistent theming system for different formats</li>
+        <li><strong>Dynamic Registration:</strong> Runtime registration of new formats and converters</li>
+        <li><strong>Variant Generation:</strong> Ability to transform between different format pairs</li>
+        <li><strong>Theming Transformation:</strong> Automatic adjustment of visual identities when switching variants</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer style="text-align: center; margin-top: 40px; color: #666;">
+    <p>&copy; 2025 HEICFlip - Format Transformation System</p>
+  </footer>
+</body>
+</html>

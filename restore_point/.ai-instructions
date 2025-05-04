@@ -1,0 +1,29 @@
+AI_INSTRUCTIONS_START
+# Image Format Converter Project - AI Assistant Instructions
+
+## IMPORTANT: READ FIRST
+
+This project is a browser-based image format conversion application. Before making any recommendations or changes:
+
+1. READ the full AI_GUIDE.md file for detailed project information
+2. EXAMINE the project structure and key files
+3. USE the available scripts in the scripts/ directory instead of manual file editing
+4. FOLLOW the troubleshooting steps in TROUBLESHOOTING.md for common issues
+
+## Key Points
+
+- This is a template project that can be remixed for different image format converters
+- Color scheme and conversion formats are defined in client/src/config.ts
+- A powerful remixing script is available at scripts/templates/create-variant.sh
+- All processing happens client-side for privacy (no server uploads)
+- The project follows a specific structure optimized for Vercel deployment
+
+## File References
+
+- Project Documentation: AI_GUIDE.md
+- Troubleshooting: TROUBLESHOOTING.md
+- Main Configuration: client/src/config.ts
+- Core Logic: client/src/workers/conversion.worker.ts
+- Deployment Config: vercel.json
+
+AI_INSTRUCTIONS_END

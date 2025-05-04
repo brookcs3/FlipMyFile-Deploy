@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --muted: #F8F8F8;
+  --muted-foreground: #737373;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --primary: #DD7230;
+  --primary-foreground: #FFFFFF;
+  --secondary: #B85A25;
+  --secondary-foreground: #FFFFFF;
+  --accent: #F39C6B;
+  --accent-foreground: #1A1A1A;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --ring: #DD7230;
+  --radius: 0.75rem;
+  
+  /* Direct color variables */
+  --primary-color: #DD7230;
+  --secondary-color: #B85A25;
+  --accent-color: #F39C6B;
+  }
+  
+  .dark {
+  --background: #1A1A1A;
+  --foreground: #F8F8F8;
+  --muted: #2A2A2A;
+  --muted-foreground: #B3B3B3;
+  --popover: #1A1A1A;
+  --popover-foreground: #F8F8F8;
+  --card: #1A1A1A;
+  --card-foreground: #F8F8F8;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --primary: #FF8438; /* Brighter orange for dark mode */
+  --primary-foreground: #1A1A1A;
+  --secondary: #E06B2D; /* Brighter secondary for dark mode */
+  --secondary-foreground: #1A1A1A;
+  --accent: #FFAF7A; /* Lighter accent for dark mode */
+  --accent-foreground: #1A1A1A;
+  --destructive: #A91B1B;
+  --destructive-foreground: #FFFFFF;
+  --ring: #FF8438;
+  --radius: 0.5rem;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-image: linear-gradient(135deg, #FFF5ED, #FFF1E6);
+    min-height: 100vh;
+  }
+
+  /* Amber gradient text for headings */
+  .gradient-text {
+    @apply font-bold;
+    background: linear-gradient(90deg, #DD7230, #F39C6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Enhanced shadows */
+  .shadow-amber {
+    box-shadow: 0 4px 14px rgba(221, 114, 48, 0.2);
+  }
+  
+  .shadow-amber-lg {
+    box-shadow: 0 10px 25px -5px rgba(221, 114, 48, 0.3);
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -8px rgba(221, 114, 48, 0.4);
+  }
+  
+  /* Enhanced drop zone */
+  .enhanced-dropzone {
+    border: 2px dashed #DD7230;
+    background: linear-gradient(to bottom right, 
+      rgba(221, 114, 48, 0.05), 
+      rgba(243, 156, 107, 0.05)
+    );
+    box-shadow: 0 4px 14px rgba(221, 114, 48, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .enhanced-dropzone:hover, 
+  .enhanced-dropzone.active {
+    background: linear-gradient(to bottom right,
+      rgba(221, 114, 48, 0.1),
+      rgba(243, 156, 107, 0.1)
+    );
+    box-shadow: 0 6px 18px rgba(221, 114, 48, 0.15);
+    border-color: #F39C6B;
+  }
+}
+

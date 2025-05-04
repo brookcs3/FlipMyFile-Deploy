@@ -1,0 +1,39 @@
+[04:05:59.161] Running build in Washington, D.C., USA (East) – iad1
+[04:05:59.177] Cloning github.com/brookcs3/heicflip (Branch: main, Commit: 7726c8d)
+[04:05:59.361] Previous build caches not available
+[04:05:59.633] Cloning completed: 456.000ms
+[04:06:00.080] Running "vercel build"
+[04:06:00.516] Vercel CLI 41.6.2
+[04:06:01.093] Installing dependencies...
+[04:06:05.154] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[04:06:05.195] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[04:06:10.298] 
+[04:06:10.298] added 500 packages in 9s
+[04:06:10.298] 
+[04:06:10.298] 64 packages are looking for funding
+[04:06:10.298]   run `npm fund` for details
+[04:06:10.793] 
+[04:06:10.793] > heicflip@1.0.0 build
+[04:06:10.793] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[04:06:10.794] 
+[04:06:11.052] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[04:06:11.105] transforming...
+[04:06:11.392] Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+[04:06:11.392]   npx update-browserslist-db@latest
+[04:06:11.392]   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[04:06:15.248] [32m✓[39m 1699 modules transformed.
+[04:06:15.527] rendering chunks...
+[04:06:15.534] computing gzip size...
+[04:06:15.550] [2m../dist/public/[22m[32mindex.html                            [39m[1m[2m  1.69 kB[22m[1m[22m[2m │ gzip:   0.98 kB[22m
+[04:06:15.550] [2m../dist/public/[22m[2massets/[22m[32mworker-BAOIWoxA.js             [39m[1m[2m  2.53 kB[22m[1m[22m
+[04:06:15.550] [2m../dist/public/[22m[2massets/[22m[32mconversion.worker-BaRWwasu.js  [39m[1m[2m 98.81 kB[22m[1m[22m
+[04:06:15.550] [2m../dist/public/[22m[2massets/[22m[35mindex-6WGiUlTQ.css             [39m[1m[2m 65.00 kB[22m[1m[22m[2m │ gzip:  11.58 kB[22m
+[04:06:15.550] [2m../dist/public/[22m[2massets/[22m[36mindex-D3mQOr3t.js              [39m[1m[2m448.91 kB[22m[1m[22m[2m │ gzip: 142.16 kB[22m
+[04:06:15.550] [32m✓ built in 4.47s[39m
+[04:06:15.584] 
+[04:06:15.584]   dist/index.js  4.4kb
+[04:06:15.584] 
+[04:06:15.584] ⚡ Done in 3ms
+[04:06:15.599] Error: No Output Directory named "public" found after the Build completed. You can configure the Output Directory in your Project Settings.
+[04:06:15.600] Learn More: https://vercel.link/missing-public-directory
+[04:06:16.183] 

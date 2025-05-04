@@ -1,0 +1,153 @@
+{
+  "formats": {
+    "heic": {
+      "name": "HEIC",
+      "mimeTypes": ["image/heic", "image/heif"],
+      "extensions": [".heic", ".heif"]
+    },
+    "jpg": {
+      "name": "JPG",
+      "mimeTypes": ["image/jpeg", "image/jpg"],
+      "extensions": [".jpg", ".jpeg"]
+    },
+    "png": {
+      "name": "PNG",
+      "mimeTypes": ["image/png"],
+      "extensions": [".png"]
+    },
+    "webp": {
+      "name": "WebP",
+      "mimeTypes": ["image/webp"],
+      "extensions": [".webp"]
+    },
+    "gif": {
+      "name": "GIF",
+      "mimeTypes": ["image/gif"],
+      "extensions": [".gif"]
+    },
+    "avi": {
+      "name": "AVI",
+      "mimeTypes": ["video/x-msvideo", "video/avi"],
+      "extensions": [".avi"]
+    },
+    "mp4": {
+      "name": "MP4",
+      "mimeTypes": ["video/mp4"],
+      "extensions": [".mp4"]
+    },
+    "mkv": {
+      "name": "MKV",
+      "mimeTypes": ["video/x-matroska"],
+      "extensions": [".mkv"]
+    },
+    "mov": {
+      "name": "MOV",
+      "mimeTypes": ["video/quicktime"],
+      "extensions": [".mov"]
+    },
+    "webm": {
+      "name": "WebM",
+      "mimeTypes": ["video/webm"],
+      "extensions": [".webm"]
+    }
+  },
+  "conversionModes": {
+    "heicToJpg": {
+      "source": "heic",
+      "target": "jpg",
+      "ffmpegOptions": ["-q:v", "Math.round(Math.min(Math.max(quality / 10, 1), 10)).toString()"],
+      "description": "Convert HEIC/HEIF images to JPG format"
+    },
+    "jpgToHeic": {
+      "source": "jpg",
+      "target": "heic",
+      "ffmpegOptions": [
+        "-c:v", "libx265",
+        "-crf", "Math.round(50 - (quality * 0.4)).toString()",
+        "-tag:v", "hvc1",
+        "-f", "hevc"
+      ],
+      "description": "Convert JPG images to HEIC format"
+    },
+    "aviToMp4": {
+      "source": "avi",
+      "target": "mp4",
+      "ffmpegOptions": [
+        "-c:v", "libx264",
+        "-crf", "Math.round(30 - (quality * 0.2)).toString()",
+        "-preset", "medium",
+        "-c:a", "aac",
+        "-b:a", "128k"
+      ],
+      "description": "Convert AVI videos to MP4 format"
+    },
+    "mp4ToAvi": {
+      "source": "mp4",
+      "target": "avi",
+      "ffmpegOptions": [
+        "-c:v", "libxvid",
+        "-q:v", "Math.round(Math.min(Math.max(quality / 10, 1), 10)).toString()",
+        "-c:a", "libmp3lame",
+        "-b:a", "192k"
+      ],
+      "description": "Convert MP4 videos to AVI format"
+    },
+    "pngToWebp": {
+      "source": "png",
+      "target": "webp",
+      "ffmpegOptions": [
+        "-c:v", "libwebp",
+        "-quality", "quality.toString()"
+      ],
+      "description": "Convert PNG images to WebP format"
+    },
+    "webpToPng": {
+      "source": "webp",
+      "target": "png",
+      "ffmpegOptions": [],
+      "description": "Convert WebP images to PNG format"
+    },
+    "mkvToMp4": {
+      "source": "mkv",
+      "target": "mp4",
+      "ffmpegOptions": [
+        "-c:v", "libx264",
+        "-crf", "Math.round(30 - (quality * 0.2)).toString()",
+        "-preset", "medium", 
+        "-c:a", "aac",
+        "-b:a", "128k"
+      ],
+      "description": "Convert MKV videos to MP4 format"
+    },
+    "mp4ToMkv": {
+      "source": "mp4",
+      "target": "mkv",
+      "ffmpegOptions": [
+        "-c", "copy"
+      ],
+      "description": "Convert MP4 videos to MKV format"
+    },
+    "gifToMp4": {
+      "source": "gif",
+      "target": "mp4",
+      "ffmpegOptions": [
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-movflags", "+faststart"
+      ],
+      "description": "Convert GIF animations to MP4 videos"
+    },
+    "movToMp4": {
+      "source": "mov",
+      "target": "mp4",
+      "ffmpegOptions": [
+        "-c:v", "libx264",
+        "-crf", "Math.round(30 - (quality * 0.2)).toString()",
+        "-preset", "medium",
+        "-c:a", "aac",
+        "-b:a", "128k"
+      ],
+      "description": "Convert MOV videos to MP4 format"
+    }
+  }
+}

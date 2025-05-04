@@ -1,0 +1,61 @@
+Here are the details for the four workflows you referenced, along with their issues:
+
+---
+
+### Workflow 1: [Run ID 14676445163](https://github.com/brookcs3/heicflip/actions/runs/14676445163)
+- **Workflow Name:** Build and Deploy
+- **File Path:** `.github/workflows/github-pages.yml`
+- **Error:**
+  - The build process failed due to a missing module.
+  - **Specific Issue:** `Cannot find package '@replit/vite-plugin-cartographer'` imported in your `vite.config.ts` file.
+  - **Exit Code:** 1
+
+---
+
+### Workflow 2: [Run ID 14676446223](https://github.com/brookcs3/heicflip/actions/runs/14676446223)
+- **Workflow Name:** Build and Deploy
+- **File Path:** `.github/workflows/github-pages.yml`
+- **Error:**
+  - The build process failed during the transformation stage.
+  - **Specific Issue:** Rollup could not resolve the import `/client/src/main.tsx` from `index.html`.
+  - **Exit Code:** 1
+
+---
+
+### Workflow 3: [Run ID 14676447272](https://github.com/brookcs3/heicflip/actions/runs/14676447272)
+- **Workflow Name:** Build and Deploy
+- **File Path:** `.github/workflows/github-pages.yml`
+- **Error:**
+  - The build process failed again during the transformation stage.
+  - **Specific Issue:** Rollup could not resolve the import `/client/src/main.tsx` from `index.html`.
+  - **Exit Code:** 1
+
+---
+
+### Workflow 4: [Run ID 14676449418](https://github.com/brookcs3/heicflip/actions/runs/14676449418)
+- **Workflow Name:** Build and Deploy
+- **File Path:** `.github/workflows/github-pages.yml`
+- **Error:**
+  - The build process failed due to a missing file.
+  - **Specific Issue:** Vite and Esbuild could not parse `tsconfig.node.json` because it does not exist.
+  - **File Not Found:** `/home/runner/work/heicflip/heicflip/tsconfig.node.json`
+  - **Exit Code:** 1
+
+---
+
+### Summary of Issues:
+1. **Missing Dependencies:**
+   - `@replit/vite-plugin-cartographer` is not installed or available.
+   - Fix by checking your `vite.config.ts` file and making sure all dependencies are properly installed in `package.json`.
+
+2. **Unresolved Imports:**
+   - Rollup is unable to resolve `/client/src/main.tsx`.
+   - Fix by verifying the file structure and paths in your project.
+
+3. **Missing Configuration File:**
+   - `tsconfig.node.json` is missing.
+   - Fix by creating this file or ensuring it is correctly committed and pushed to the repository.
+
+---
+
+Would you like help with any specific part of these issues?

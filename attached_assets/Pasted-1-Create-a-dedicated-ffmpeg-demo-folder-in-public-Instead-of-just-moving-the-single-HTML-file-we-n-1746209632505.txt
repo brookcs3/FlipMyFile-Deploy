@@ -1,0 +1,82 @@
+1. Create a dedicated ffmpeg-demo folder in public
+Instead of just moving the single HTML file, we need to create a proper structure for all the demo assets:
+
+Create a folder client/public/ffmpeg-demo/
+Move your format-transformation-demo.html to this folder and rename it to index.html
+Copy all required assets (JS, CSS, WASM files) to this folder
+
+2. Update vercel.json
+jsonCopy{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/ffmpeg-demo",
+      "destination": "/ffmpeg-demo/index.html"
+    },
+    {
+      "source": "/ffmpeg-demo/(.*)",
+      "destination": "/ffmpeg-demo/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).wasm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    }
+  ]
+}
+3. Create a complete ffmpeg-demo folder structure
+Based on your working Replit demo, you need to create this structure in your client/public folder:
+Copyclient/public/
+└── ffmpeg-demo/
+    ├── index.html (your format-transformation-demo.html file)
+    ├── ffmpeg-core.js
+    ├── ffmpeg-core.wasm
+    ├── ffmpeg-core.worker.js
+    ├── ffmpeg.min.js
+    └── [any other assets the demo needs]
+4. Clone assets from the working demo
+I recommend using the working demo to get all the necessary files:
+
+Visit https://1e1658df-73ca-4a0d-a80c-7c872dc4e6b8-00-1pigyhzg6fj9j.riker.replit.dev/ffmpeg-demo
+Use browser dev tools to see all loaded resources
+Download those files and place them in your client/public/ffmpeg-demo/ folder
+
+5. Update paths in the HTML file if needed
+Make sure all resource paths in the HTML file are relative to the ffmpeg-demo directory.
+Implementation Steps
+
+Create the folder structure
+Copy all required files
+Update vercel.json
+Check for absolute paths in the HTML that might need to be made relative
+Deploy

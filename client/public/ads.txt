@@ -1,0 +1,6 @@
+# Redirecting to Ezoic's ads.txt manager
+# This file will be copied to the correct location during build
+
+# Placeholder entries that will be overwritten by the redirect in production
+google.com, pub-2197574694656004, DIRECT, f08c47fec0942fa0
+infolinks.com, 3435623, DIRECT

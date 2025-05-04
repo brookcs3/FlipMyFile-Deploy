@@ -1,0 +1,48 @@
+ds.txt Setup
+Ads.txt setup is required for all publishers using Ezoic. This guide will help you set up your ads.txt file to work with Ezoic's ad partners.
+
+What is Ads.txt?
+Ads.txt is a text file that publishers place on their websites to publicly declare the companies authorized to sell their digital inventory. It helps prevent unauthorized inventory sales and protects against domain spoofing.
+
+Ads.txt Setup
+To append Ezoic's ad partners to your ads.txt file, you'll need to set up a redirect. Here are several recommended methods to achieve this.
+
+Important Notes:
+
+Replace [YOUR_DOMAIN].com with your actual domain name.
+If you need additional assistance setting up your ads.txt account, please contact Ezoic support.
+Before creating the redirect, check the URL to ensure that it contains your existing ads.txt entries.
+1. .htaccess File Redirect
+If your site has a .htaccess file, insert the following line:
+
+Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/[YOUR_DOMAIN].com
+apache
+2. Nginx Redirect
+Add the following redirection code to your Nginx configuration:
+
+server {
+    location ~ /ads.txt {
+        return 301 https://srv.adstxtmanager.com/19390/[YOUR_DOMAIN].com;
+    }
+}
+nginx
+3. PHP Redirect
+If your current ads.txt file is PHP, place this code in it:
+
+<?php
+header('Location: https://srv.adstxtmanager.com/19390/[YOUR_DOMAIN].com');
+exit;
+?>
+php
+4. Curl Command
+If you're unable to use the above methods, you can use the following curl command to download your ads.txt file and save it to your server.
+
+curl -L https://srv.adstxtmanager.com/19390/[YOUR_DOMAIN].com > ads.txt
+bash
+We recommend setting up a cron job to run this command at least every 24 hours in order to keep your ads.txt file up to date to ensure no loss in revenue.
+Verify Your Setup
+After implementing one of these redirect methods, make sure to clear your cache and verify that your ads.txt redirect is working correctly by visiting yourdomain.com/ads.txt. If you encounter any issues or need further assistance with setting up your ads.txt redirect, don't hesitate to reach out to Ezoic's support team.
+
+By implementing one of these redirect methods, you ensure that your ads.txt file is properly configured to work with Ezoic's ad partners. This maximizes your monetization potential while maintaining security and transparency in programmatic advertising.
+
+Continue to the next implementation step.

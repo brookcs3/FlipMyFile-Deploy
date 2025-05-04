@@ -1,0 +1,135 @@
+Here is a detailed step-by-step guide incorporating all necessary details for your task:
+
+---
+
+### **Step 1: Delete the `heicflip` Repository**
+1. **Ensure You Have Administrative Permissions**:
+   - Verify that you have the proper permissions to delete the repository. Only the repository owner or users with admin rights can delete it.
+
+2. **Delete the Repository via GitHub**:
+   - Navigate to the `brookcs3/heicflip` repository on GitHub:  
+     [https://github.com/brookcs3/heicflip](https://github.com/brookcs3/heicflip).
+   - Click on the **Settings** tab in the repository.
+   - Scroll down to the **Danger Zone** section at the bottom of the settings page.
+   - Click on the **Delete this repository** button.
+   - You will be prompted to confirm the deletion by typing the repository name (`brookcs3/heicflip`) as a confirmation step.
+   - Once confirmed, the repository will be permanently deleted.
+
+   **Important Note**: Deleting a repository is irreversible. Make sure you have a backup of any critical data before proceeding.
+
+   For additional details, refer to the [GitHub repository deletion guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository).
+
+---
+
+### **Step 2: View Build Logs of the `aviflip` Project**
+1. **Access the Build Logs**:
+   - Open the build log of the successful `aviflip` project by visiting the following link:  
+     [Build Logs for AVIFlip](https://github.com/brookcs3/aviflip/actions/runs/14656346061/job/41132018317).
+
+2. **Review the Logs**:
+   - Pay close attention to the following sections in the logs:
+     - **Cloning Stage**: Verify the branch and commit that were used during the build.
+     - **Dependency Installation**: Review the `npm install` process and note any specific dependency versions.
+     - **Build Command**: Review the `npm run build` or equivalent command and confirm that it completed without errors.
+     - **Output Details**: Check where the build artifacts were generated.
+
+   **Key Information to Note**:
+   - The successful configuration of `aviflip` for reference.
+   - Any specific warnings or optimizations that might improve the new `heicflip` project.
+
+---
+
+### **Step 3: Rebuild the `heicflip` Project for a New Repository**
+1. **Clone the `aviflip` Repository**:
+   - Run the following command to clone the `aviflip` repository as a template:
+     ```bash
+     git clone https://github.com/brookcs3/aviflip
+     ```
+   - This will create a local copy of the `aviflip` project, which you can use as a base for the new `heicflip` project.
+
+2. **Set Up the New Project**:
+   - Rename the directory to `heicflip`:
+     ```bash
+     mv aviflip heicflip
+     cd heicflip
+     ```
+   - Update project-specific files:
+     - **`package.json`**:
+       - Update the project name from `aviflip` to `heicflip`.
+       - Modify any metadata like the description to reflect the new project purpose.
+     - **Color Scheme**:
+       - Update the UI components to use the `heicflip` amber/orange color theme:
+         - Primary: `#DD7230`
+         - Secondary: `#B85A25`
+         - Accent: `#F39C6B`.
+     - **Format Conversion Logic**:
+       - Replace the AVIF-to-JPG conversion logic with HEIC-to-JPG logic.
+       - For example, ensure the relevant modules or libraries for handling HEIC files are installed and configured.
+
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+
+3. **Test the Project Locally**:
+   - Build the project locally to ensure setup success:
+     ```bash
+     npm run build
+     ```
+   - If any errors occur, compare with the `aviflip` build logs to identify discrepancies.
+
+---
+
+### **Step 4: Push the New `heicflip` Project to a GitHub Repository**
+1. **Create a New Repository**:
+   - Go to GitHub and create a new repository with the name `heicflip`:  
+     [Create New Repository](https://github.com/new).
+
+2. **Initialize Git in the Project Directory**:
+   - In the `heicflip` project directory, run the following commands:
+     ```bash
+     git init
+     git remote add origin https://github.com/brookcs3/heicflip
+     ```
+
+3. **Push the Code to GitHub**:
+   - Add, commit, and push the project to the new repository:
+     ```bash
+     git add .
+     git commit -m "Initial commit for HEICFlip project"
+     git push -u origin main
+     ```
+
+---
+
+### **Step 5: Align with the Successful Build of `aviflip`**
+1. **Compare Configurations**:
+   - Ensure that `heicflip` has a similar setup to `aviflip`:
+     - **Build Tools**: Check `vite.config.ts` or similar configuration files.
+     - **Dependencies**: Ensure all necessary dependencies are included in `package.json`.
+
+2. **Deploy the New Project**:
+   - Deploy the new `heicflip` project to your hosting provider (e.g., Vercel).
+   - Monitor the deployment logs to ensure success.
+
+3. **Debug Any Issues**:
+   - If the deployment fails, review the build logs from both `heicflip` and `aviflip` to identify and resolve any problems.
+   - Common issues might include missing dependencies, incorrect paths, or configuration mismatches.
+
+---
+
+### **Key Differences Between AVIFlip and HEICFlip**
+1. **Format Conversion**:
+   - AVIFlip: Converts between AVIF and JPG formats.
+   - HEICFlip: Converts between HEIC and JPG formats.
+
+2. **Color Scheme**:
+   - AVIFlip: Uses a blue color theme.
+   - HEICFlip: Uses an amber/orange color scheme:
+     - Primary: `#DD7230`
+     - Secondary: `#B85A25`
+     - Accent: `#F39C6B` (based on Pantone Amberglow).
+
+---
+
+This guide should help you delete the old repository, rebuild the project using `aviflip` as a template, and align the new `heicflip` project with the successful configuration of `aviflip`. Let me know if you need additional help with any of the steps!

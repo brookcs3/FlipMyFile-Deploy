@@ -1,0 +1,644 @@
+2025-04-25T03:32:17.3369190Z Current runner version: '2.323.0'
+2025-04-25T03:32:17.3395049Z ##[group]Operating System
+2025-04-25T03:32:17.3395804Z Ubuntu
+2025-04-25T03:32:17.3396284Z 24.04.2
+2025-04-25T03:32:17.3396830Z LTS
+2025-04-25T03:32:17.3397307Z ##[endgroup]
+2025-04-25T03:32:17.3397966Z ##[group]Runner Image
+2025-04-25T03:32:17.3398666Z Image: ubuntu-24.04
+2025-04-25T03:32:17.3399161Z Version: 20250420.1.0
+2025-04-25T03:32:17.3400202Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250420.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-04-25T03:32:17.3401670Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250420.1
+2025-04-25T03:32:17.3402563Z ##[endgroup]
+2025-04-25T03:32:17.3403079Z ##[group]Runner Image Provisioner
+2025-04-25T03:32:17.3403695Z 2.0.422.1
+2025-04-25T03:32:17.3404167Z ##[endgroup]
+2025-04-25T03:32:17.3405181Z ##[group]GITHUB_TOKEN Permissions
+2025-04-25T03:32:17.3407106Z Contents: read
+2025-04-25T03:32:17.3407607Z Metadata: read
+2025-04-25T03:32:17.3408588Z Pages: write
+2025-04-25T03:32:17.3409152Z ##[endgroup]
+2025-04-25T03:32:17.3411206Z Secret source: Actions
+2025-04-25T03:32:17.3412031Z Prepare workflow directory
+2025-04-25T03:32:17.3749824Z Prepare all required actions
+2025-04-25T03:32:17.3788735Z Getting action download info
+2025-04-25T03:32:17.9480463Z ##[group]Download immutable action package 'actions/checkout@v4'
+2025-04-25T03:32:17.9481470Z Version: 4.2.2
+2025-04-25T03:32:17.9482386Z Digest: sha256:ccb2698953eaebd21c7bf6268a94f9c26518a7e38e27e0b83c1fe1ad049819b1
+2025-04-25T03:32:17.9483986Z Source commit SHA: 11bd71901bbe5b1630ceea73d27597364c9af683
+2025-04-25T03:32:17.9484662Z ##[endgroup]
+2025-04-25T03:32:18.0595572Z Download action repository 'actions/jekyll-build-pages@v1' (SHA:44a6e6beabd48582f863aeeb6cb2151cc1716697)
+2025-04-25T03:32:18.5592788Z ##[group]Download immutable action package 'actions/upload-pages-artifact@v3'
+2025-04-25T03:32:18.5593770Z Version: 3.0.1
+2025-04-25T03:32:18.5594543Z Digest: sha256:aa65de5e734350e024ca30fe125144b6260e68160e01349fc79f7e321ec35490
+2025-04-25T03:32:18.5595703Z Source commit SHA: 56afc609e74202658d3ffba0e8f6dda462b719fa
+2025-04-25T03:32:18.5596480Z ##[endgroup]
+2025-04-25T03:32:18.8504968Z Getting action download info
+2025-04-25T03:32:19.0223619Z ##[group]Download immutable action package 'actions/upload-artifact@v4'
+2025-04-25T03:32:19.0224738Z Version: 4.6.2
+2025-04-25T03:32:19.0225727Z Digest: sha256:290722aa3281d5caf23d0acdc3dbeb3424786a1a01a9cc97e72f147225e37c38
+2025-04-25T03:32:19.0226955Z Source commit SHA: ea165f8d65b6e75b540449e92b4886f43607fa02
+2025-04-25T03:32:19.0227947Z ##[endgroup]
+2025-04-25T03:32:19.2366738Z Complete job name: build
+2025-04-25T03:32:19.2862319Z ##[group]Pull down action image 'ghcr.io/actions/jekyll-build-pages:v1.0.13'
+2025-04-25T03:32:19.3519119Z ##[command]/usr/bin/docker pull ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-04-25T03:32:20.2558855Z v1.0.13: Pulling from actions/jekyll-build-pages
+2025-04-25T03:32:20.2560980Z efc2b5ad9eec: Pulling fs layer
+2025-04-25T03:32:20.2562247Z 165b60d1bb48: Pulling fs layer
+2025-04-25T03:32:20.2563343Z 2a328af1ca3a: Pulling fs layer
+2025-04-25T03:32:20.2564470Z 32b58fa44788: Pulling fs layer
+2025-04-25T03:32:20.2565557Z 590ab93c22d2: Pulling fs layer
+2025-04-25T03:32:20.2566610Z 26ea96c4c14c: Pulling fs layer
+2025-04-25T03:32:20.2567957Z bd7e451dfea1: Pulling fs layer
+2025-04-25T03:32:20.2569340Z c209e9dadc51: Pulling fs layer
+2025-04-25T03:32:20.2570674Z a4925b5c711a: Pulling fs layer
+2025-04-25T03:32:20.2571730Z cd9459784e3c: Pulling fs layer
+2025-04-25T03:32:20.2572704Z 32b58fa44788: Waiting
+2025-04-25T03:32:20.2573508Z 26ea96c4c14c: Waiting
+2025-04-25T03:32:20.2574369Z a4925b5c711a: Waiting
+2025-04-25T03:32:20.2575179Z bd7e451dfea1: Waiting
+2025-04-25T03:32:20.2576059Z c209e9dadc51: Waiting
+2025-04-25T03:32:20.2576863Z cd9459784e3c: Waiting
+2025-04-25T03:32:20.4167610Z 2a328af1ca3a: Verifying Checksum
+2025-04-25T03:32:20.4169634Z 2a328af1ca3a: Download complete
+2025-04-25T03:32:20.4779089Z 165b60d1bb48: Verifying Checksum
+2025-04-25T03:32:20.4781464Z 165b60d1bb48: Download complete
+2025-04-25T03:32:20.6614189Z 590ab93c22d2: Verifying Checksum
+2025-04-25T03:32:20.6622182Z 590ab93c22d2: Download complete
+2025-04-25T03:32:20.7445983Z 32b58fa44788: Verifying Checksum
+2025-04-25T03:32:20.7447934Z 32b58fa44788: Download complete
+2025-04-25T03:32:20.9036685Z bd7e451dfea1: Verifying Checksum
+2025-04-25T03:32:20.9038148Z bd7e451dfea1: Download complete
+2025-04-25T03:32:21.0183519Z efc2b5ad9eec: Verifying Checksum
+2025-04-25T03:32:21.0184671Z efc2b5ad9eec: Download complete
+2025-04-25T03:32:21.1961959Z a4925b5c711a: Download complete
+2025-04-25T03:32:21.3746928Z cd9459784e3c: Verifying Checksum
+2025-04-25T03:32:21.3747534Z cd9459784e3c: Download complete
+2025-04-25T03:32:21.5438261Z 26ea96c4c14c: Verifying Checksum
+2025-04-25T03:32:21.5441354Z 26ea96c4c14c: Download complete
+2025-04-25T03:32:21.5495031Z c209e9dadc51: Verifying Checksum
+2025-04-25T03:32:21.5495780Z c209e9dadc51: Download complete
+2025-04-25T03:32:22.2644756Z efc2b5ad9eec: Pull complete
+2025-04-25T03:32:23.6990123Z 165b60d1bb48: Pull complete
+2025-04-25T03:32:23.7111612Z 2a328af1ca3a: Pull complete
+2025-04-25T03:32:24.7345930Z 32b58fa44788: Pull complete
+2025-04-25T03:32:24.7506215Z 590ab93c22d2: Pull complete
+2025-04-25T03:32:28.7822617Z 26ea96c4c14c: Pull complete
+2025-04-25T03:32:28.7979020Z bd7e451dfea1: Pull complete
+2025-04-25T03:32:30.9031602Z c209e9dadc51: Pull complete
+2025-04-25T03:32:30.9295728Z a4925b5c711a: Pull complete
+2025-04-25T03:32:30.9523156Z cd9459784e3c: Pull complete
+2025-04-25T03:32:30.9559592Z Digest: sha256:6791ebfd912185ed59bfb5fb102664fa872496b79f87ff8b9cfba292a7345041
+2025-04-25T03:32:30.9572640Z Status: Downloaded newer image for ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-04-25T03:32:30.9584299Z ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-04-25T03:32:30.9606277Z ##[endgroup]
+2025-04-25T03:32:30.9878294Z ##[group]Run actions/checkout@v4
+2025-04-25T03:32:30.9878907Z with:
+2025-04-25T03:32:30.9879106Z   ref: gh-pages
+2025-04-25T03:32:30.9879302Z   submodules: recursive
+2025-04-25T03:32:30.9879536Z   repository: brookcs3/aviflip
+2025-04-25T03:32:30.9879936Z   token: ***
+2025-04-25T03:32:30.9880117Z   ssh-strict: true
+2025-04-25T03:32:30.9880288Z   ssh-user: git
+2025-04-25T03:32:30.9880470Z   persist-credentials: true
+2025-04-25T03:32:30.9880698Z   clean: true
+2025-04-25T03:32:30.9880939Z   sparse-checkout-cone-mode: true
+2025-04-25T03:32:30.9881161Z   fetch-depth: 1
+2025-04-25T03:32:30.9881334Z   fetch-tags: false
+2025-04-25T03:32:30.9881516Z   show-progress: true
+2025-04-25T03:32:30.9881691Z   lfs: false
+2025-04-25T03:32:30.9881862Z   set-safe-directory: true
+2025-04-25T03:32:30.9882258Z ##[endgroup]
+2025-04-25T03:32:31.1714482Z Syncing repository: brookcs3/aviflip
+2025-04-25T03:32:31.1716566Z ##[group]Getting Git version info
+2025-04-25T03:32:31.1717283Z Working directory is '/home/runner/work/aviflip/aviflip'
+2025-04-25T03:32:31.1718490Z [command]/usr/bin/git version
+2025-04-25T03:32:31.1765265Z git version 2.49.0
+2025-04-25T03:32:31.1795424Z ##[endgroup]
+2025-04-25T03:32:31.1812415Z Temporarily overriding HOME='/home/runner/work/_temp/d07f0a27-b4bf-4794-9d6a-2cf000445373' before making global git config changes
+2025-04-25T03:32:31.1813806Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-25T03:32:31.1829224Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aviflip/aviflip
+2025-04-25T03:32:31.1869069Z Deleting the contents of '/home/runner/work/aviflip/aviflip'
+2025-04-25T03:32:31.1872715Z ##[group]Initializing the repository
+2025-04-25T03:32:31.1877275Z [command]/usr/bin/git init /home/runner/work/aviflip/aviflip
+2025-04-25T03:32:31.2001783Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-04-25T03:32:31.2003132Z hint: is subject to change. To configure the initial branch name to use in all
+2025-04-25T03:32:31.2004193Z hint: of your new repositories, which will suppress this warning, call:
+2025-04-25T03:32:31.2004898Z hint:
+2025-04-25T03:32:31.2005381Z hint: 	git config --global init.defaultBranch <name>
+2025-04-25T03:32:31.2006376Z hint:
+2025-04-25T03:32:31.2006975Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-04-25T03:32:31.2008475Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-04-25T03:32:31.2009076Z hint:
+2025-04-25T03:32:31.2009373Z hint: 	git branch -m <name>
+2025-04-25T03:32:31.2010024Z Initialized empty Git repository in /home/runner/work/aviflip/aviflip/.git/
+2025-04-25T03:32:31.2020028Z [command]/usr/bin/git remote add origin https://github.com/brookcs3/aviflip
+2025-04-25T03:32:31.2054652Z ##[endgroup]
+2025-04-25T03:32:31.2055154Z ##[group]Disabling automatic garbage collection
+2025-04-25T03:32:31.2059180Z [command]/usr/bin/git config --local gc.auto 0
+2025-04-25T03:32:31.2089847Z ##[endgroup]
+2025-04-25T03:32:31.2090643Z ##[group]Setting up auth
+2025-04-25T03:32:31.2098487Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-25T03:32:31.2130079Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-25T03:32:31.2430275Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-25T03:32:31.2463776Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-25T03:32:31.2699617Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-04-25T03:32:31.2748222Z ##[endgroup]
+2025-04-25T03:32:31.2748915Z ##[group]Fetching the repository
+2025-04-25T03:32:31.2758654Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/gh-pages*:refs/remotes/origin/gh-pages* +refs/tags/gh-pages*:refs/tags/gh-pages*
+2025-04-25T03:32:31.9010384Z From https://github.com/brookcs3/aviflip
+2025-04-25T03:32:31.9011177Z  * [new branch]      gh-pages   -> origin/gh-pages
+2025-04-25T03:32:31.9038000Z ##[endgroup]
+2025-04-25T03:32:31.9038610Z ##[group]Determining the checkout info
+2025-04-25T03:32:31.9046115Z [command]/usr/bin/git branch --list --remote origin/gh-pages
+2025-04-25T03:32:31.9070601Z   origin/gh-pages
+2025-04-25T03:32:31.9076438Z ##[endgroup]
+2025-04-25T03:32:31.9081593Z [command]/usr/bin/git sparse-checkout disable
+2025-04-25T03:32:31.9191048Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-04-25T03:32:31.9222730Z ##[group]Checking out the ref
+2025-04-25T03:32:31.9228439Z [command]/usr/bin/git checkout --progress --force -B gh-pages refs/remotes/origin/gh-pages
+2025-04-25T03:32:31.9548636Z Switched to a new branch 'gh-pages'
+2025-04-25T03:32:31.9550122Z branch 'gh-pages' set up to track 'origin/gh-pages'.
+2025-04-25T03:32:31.9558476Z ##[endgroup]
+2025-04-25T03:32:31.9558932Z ##[group]Setting up auth for fetching submodules
+2025-04-25T03:32:31.9565128Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-04-25T03:32:31.9605368Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2025-04-25T03:32:31.9637963Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2025-04-25T03:32:31.9670494Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-182832077@github.com:
+2025-04-25T03:32:31.9696543Z ##[endgroup]
+2025-04-25T03:32:31.9696977Z ##[group]Fetching submodules
+2025-04-25T03:32:31.9701411Z [command]/usr/bin/git submodule sync --recursive
+2025-04-25T03:32:31.9942403Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2025-04-25T03:32:32.0176032Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2025-04-25T03:32:32.0405757Z ##[endgroup]
+2025-04-25T03:32:32.0406821Z ##[group]Persisting credentials for submodules
+2025-04-25T03:32:32.0413588Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2025-04-25T03:32:32.0694205Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2025-04-25T03:32:32.0935122Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2025-04-25T03:32:32.1168096Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-182832077@github.com:'
+2025-04-25T03:32:32.1398298Z ##[endgroup]
+2025-04-25T03:32:32.1438913Z [command]/usr/bin/git log -1 --format=%H
+2025-04-25T03:32:32.1464705Z 5bb9313cba6e5867bf4c76fe921aa3396f968bdd
+2025-04-25T03:32:32.1700320Z ##[group]Run actions/jekyll-build-pages@v1
+2025-04-25T03:32:32.1700601Z with:
+2025-04-25T03:32:32.1700764Z   source: .
+2025-04-25T03:32:32.1700923Z   destination: ./_site
+2025-04-25T03:32:32.1701106Z   future: false
+2025-04-25T03:32:32.1701339Z   build_revision: 5bb9313cba6e5867bf4c76fe921aa3396f968bdd
+2025-04-25T03:32:32.1701617Z   verbose: true
+2025-04-25T03:32:32.1701914Z   token: ***
+2025-04-25T03:32:32.1702081Z ##[endgroup]
+2025-04-25T03:32:32.1792942Z ##[command]/usr/bin/docker run --name ghcrioactionsjekyllbuildpagesv1013_18ce3d --label 6f0ad1 --workdir /github/workspace --rm -e "INPUT_SOURCE" -e "INPUT_DESTINATION" -e "INPUT_FUTURE" -e "INPUT_BUILD_REVISION" -e "INPUT_VERBOSE" -e "INPUT_TOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_ID_TOKEN_REQUEST_URL" -e "ACTIONS_ID_TOKEN_REQUEST_TOKEN" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/aviflip/aviflip":"/github/workspace" ghcr.io/actions/jekyll-build-pages:v1.0.13
+2025-04-25T03:32:33.0471436Z [33mConfiguration file: none[0m
+2025-04-25T03:32:33.1668438Z To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+2025-04-25T03:32:35.2422296Z   Logging at level: debug
+2025-04-25T03:32:35.2423150Z       GitHub Pages: github-pages v232
+2025-04-25T03:32:35.2423800Z       GitHub Pages: jekyll v3.10.0
+2025-04-25T03:32:35.2424394Z              Theme: jekyll-theme-primer
+2025-04-25T03:32:35.2425214Z       Theme source: /usr/local/bundle/gems/jekyll-theme-primer-0.6.0
+2025-04-25T03:32:35.2426116Z          Requiring: jekyll-github-metadata
+2025-04-25T03:32:35.2426757Z          Requiring: jekyll-seo-tag
+2025-04-25T03:32:35.2427371Z          Requiring: jekyll-coffeescript
+2025-04-25T03:32:35.2428219Z          Requiring: jekyll-commonmark-ghpages
+2025-04-25T03:32:35.2429206Z          Requiring: jekyll-gist
+2025-04-25T03:32:35.2429589Z          Requiring: jekyll-github-metadata
+2025-04-25T03:32:35.2430012Z          Requiring: jekyll-paginate
+2025-04-25T03:32:35.2430404Z          Requiring: jekyll-relative-links
+2025-04-25T03:32:35.2430829Z          Requiring: jekyll-optional-front-matter
+2025-04-25T03:32:35.2431244Z          Requiring: jekyll-readme-index
+2025-04-25T03:32:35.2431711Z          Requiring: jekyll-default-layout
+2025-04-25T03:32:35.2432170Z          Requiring: jekyll-titles-from-headings
+2025-04-25T03:32:35.2432640Z    GitHub Metadata: Initializing...
+2025-04-25T03:32:35.2433087Z             Source: /github/workspace/.
+2025-04-25T03:32:35.2433510Z        Destination: /github/workspace/./_site
+2025-04-25T03:32:35.2434071Z  Incremental build: disabled. Enable with --incremental
+2025-04-25T03:32:35.2434552Z       Generating... 
+2025-04-25T03:32:35.2439684Z         Generating: JekyllOptionalFrontMatter::Generator finished in 0.00048224 seconds.
+2025-04-25T03:32:35.2440992Z         Generating: JekyllReadmeIndex::Generator finished in 0.00669947 seconds.
+2025-04-25T03:32:35.2441844Z         Generating: Jekyll::Paginate::Pagination finished in 5.861e-06 seconds.
+2025-04-25T03:32:35.2442700Z         Generating: JekyllRelativeLinks::Generator finished in 0.001963592 seconds.
+2025-04-25T03:32:35.2443545Z         Generating: JekyllDefaultLayout::Generator finished in 0.000138518 seconds.
+2025-04-25T03:32:35.2444216Z          Requiring: kramdown-parser-gfm
+2025-04-25T03:32:35.2444895Z         Generating: JekyllTitlesFromHeadings::Generator finished in 0.009009388 seconds.
+2025-04-25T03:32:35.2445587Z          Rendering: assets/css/style.scss
+2025-04-25T03:32:35.2446026Z   Pre-Render Hooks: assets/css/style.scss
+2025-04-25T03:32:35.2446461Z   Rendering Markup: assets/css/style.scss
+2025-04-25T03:32:35.2446900Z          Rendering: README_jpgflip.md
+2025-04-25T03:32:35.2447323Z   Pre-Render Hooks: README_jpgflip.md
+2025-04-25T03:32:35.2447978Z   Rendering Markup: README_jpgflip.md
+2025-04-25T03:32:35.2448423Z   Rendering Layout: README_jpgflip.md
+2025-04-25T03:32:35.2448839Z      Layout source: theme
+2025-04-25T03:32:35.2449243Z    GitHub Metadata: Generating for brookcs3/aviflip
+2025-04-25T03:32:35.2450210Z    GitHub Metadata: Calling @client.repository("brookcs3/aviflip", {:accept=>"application/vnd.github.drax-preview+json"})
+2025-04-25T03:32:35.2451270Z    GitHub Metadata: Calling @client.pages("brookcs3/aviflip", {})
+2025-04-25T03:32:35.2451897Z          Rendering: attached_assets/content-1745540097810.md
+2025-04-25T03:32:35.2452489Z   Pre-Render Hooks: attached_assets/content-1745540097810.md
+2025-04-25T03:32:35.2453096Z   Rendering Markup: attached_assets/content-1745540097810.md
+2025-04-25T03:32:35.2453573Z   Rendering Layout: attached_assets/content-1745540097810.md
+2025-04-25T03:32:35.2453866Z      Layout source: theme
+2025-04-25T03:32:35.2454073Z          Rendering: README.md
+2025-04-25T03:32:35.2454286Z   Pre-Render Hooks: README.md
+2025-04-25T03:32:35.2454502Z   Rendering Markup: README.md
+2025-04-25T03:32:35.2454705Z   Rendering Layout: README.md
+2025-04-25T03:32:35.2454900Z      Layout source: theme
+2025-04-25T03:32:35.2455113Z          Rendering: aviflip/README.md
+2025-04-25T03:32:35.2455349Z   Pre-Render Hooks: aviflip/README.md
+2025-04-25T03:32:35.2455582Z   Rendering Markup: aviflip/README.md
+2025-04-25T03:32:35.2455805Z   Rendering Layout: aviflip/README.md
+2025-04-25T03:32:35.2456019Z      Layout source: theme
+2025-04-25T03:32:35.2456225Z          Rendering: jpgflip-full/README.md
+2025-04-25T03:32:35.2456482Z   Pre-Render Hooks: jpgflip-full/README.md
+2025-04-25T03:32:35.2456738Z   Rendering Markup: jpgflip-full/README.md
+2025-04-25T03:32:35.2456980Z   Rendering Layout: jpgflip-full/README.md
+2025-04-25T03:32:35.2457213Z      Layout source: theme
+2025-04-25T03:32:35.2457454Z            Writing: /github/workspace/_site/assets/css/style.css
+2025-04-25T03:32:35.2458007Z            Writing: /github/workspace/_site/README_jpgflip.html
+2025-04-25T03:32:35.2458619Z            Writing: /github/workspace/_site/attached_assets/content-1745540097810.html
+2025-04-25T03:32:35.2459002Z            Writing: /github/workspace/_site/index.html
+2025-04-25T03:32:35.2459298Z            Writing: /github/workspace/_site/aviflip/index.html
+2025-04-25T03:32:35.2459647Z            Writing: /github/workspace/_site/jpgflip-full/index.html
+2025-04-25T03:32:35.2459957Z                     done in 1.768 seconds.
+2025-04-25T03:32:35.2460245Z  Auto-regeneration: disabled. Use --watch to enable.
+2025-04-25T03:32:35.3356674Z ##[group]Run actions/upload-pages-artifact@v3
+2025-04-25T03:32:35.3356972Z with:
+2025-04-25T03:32:35.3357140Z   path: ./_site
+2025-04-25T03:32:35.3357329Z   name: github-pages
+2025-04-25T03:32:35.3357519Z   retention-days: 1
+2025-04-25T03:32:35.3357863Z ##[endgroup]
+2025-04-25T03:32:35.3454342Z ##[group]Run echo ::group::Archive artifact
+2025-04-25T03:32:35.3454705Z [36;1mecho ::group::Archive artifact[0m
+2025-04-25T03:32:35.3454952Z [36;1mtar \[0m
+2025-04-25T03:32:35.3455201Z [36;1m  --dereference --hard-dereference \[0m
+2025-04-25T03:32:35.3455496Z [36;1m  --directory "$INPUT_PATH" \[0m
+2025-04-25T03:32:35.3455778Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2025-04-25T03:32:35.3456038Z [36;1m  --exclude=.git \[0m
+2025-04-25T03:32:35.3456254Z [36;1m  --exclude=.github \[0m
+2025-04-25T03:32:35.3456465Z [36;1m  .[0m
+2025-04-25T03:32:35.3456638Z [36;1mecho ::endgroup::[0m
+2025-04-25T03:32:35.3510303Z shell: /usr/bin/sh -e {0}
+2025-04-25T03:32:35.3510551Z env:
+2025-04-25T03:32:35.3510789Z   INPUT_PATH: ./_site
+2025-04-25T03:32:35.3510995Z ##[endgroup]
+2025-04-25T03:32:35.3592359Z ##[group]Archive artifact
+2025-04-25T03:32:35.3608121Z ./
+2025-04-25T03:32:35.3608390Z ./aviflip/
+2025-04-25T03:32:35.3608696Z ./aviflip/drizzle.config.ts
+2025-04-25T03:32:35.3609074Z ./aviflip/tailwind.config.ts
+2025-04-25T03:32:35.3609431Z ./aviflip/remove_index.sh
+2025-04-25T03:32:35.3609767Z ./aviflip/package.json
+2025-04-25T03:32:35.3610106Z ./aviflip/generated-icon.png
+2025-04-25T03:32:35.3619469Z ./aviflip/shared/
+2025-04-25T03:32:35.3619882Z ./aviflip/shared/schema.ts
+2025-04-25T03:32:35.3620231Z ./aviflip/index.html
+2025-04-25T03:32:35.3620546Z ./aviflip/package-lock.json
+2025-04-25T03:32:35.3623308Z ./aviflip/components.json
+2025-04-25T03:32:35.3623657Z ./aviflip/tsconfig.json
+2025-04-25T03:32:35.3623991Z ./aviflip/server/
+2025-04-25T03:32:35.3624279Z ./aviflip/server/vite.ts
+2025-04-25T03:32:35.3624613Z ./aviflip/server/routes.ts
+2025-04-25T03:32:35.3624974Z ./aviflip/server/index.ts
+2025-04-25T03:32:35.3625305Z ./aviflip/server/storage.ts
+2025-04-25T03:32:35.3625636Z ./aviflip/client/
+2025-04-25T03:32:35.3625919Z ./aviflip/client/src/
+2025-04-25T03:32:35.3626240Z ./aviflip/client/src/config.ts
+2025-04-25T03:32:35.3626593Z ./aviflip/client/src/workers/
+2025-04-25T03:32:35.3627011Z ./aviflip/client/src/workers/conversion.worker.ts
+2025-04-25T03:32:35.3627472Z ./aviflip/client/src/pages/
+2025-04-25T03:32:35.3627968Z ./aviflip/client/src/pages/Home.tsx
+2025-04-25T03:32:35.3628402Z ./aviflip/client/src/pages/not-found.tsx
+2025-04-25T03:32:35.3628798Z ./aviflip/client/src/lib/
+2025-04-25T03:32:35.3629136Z ./aviflip/client/src/lib/utils.ts
+2025-04-25T03:32:35.3629521Z ./aviflip/client/src/lib/queryClient.ts
+2025-04-25T03:32:35.3629924Z ./aviflip/client/src/lib/theme.ts
+2025-04-25T03:32:35.3630280Z ./aviflip/client/src/hooks/
+2025-04-25T03:32:35.3630684Z ./aviflip/client/src/hooks/use-conversion-worker.ts
+2025-04-25T03:32:35.3631147Z ./aviflip/client/src/hooks/use-toast.ts
+2025-04-25T03:32:35.3631569Z ./aviflip/client/src/hooks/use-mobile.tsx
+2025-04-25T03:32:35.3631986Z ./aviflip/client/src/components/
+2025-04-25T03:32:35.3632387Z ./aviflip/client/src/components/StepCard.tsx
+2025-04-25T03:32:35.3632878Z ./aviflip/client/src/components/TechnicalDetails.tsx
+2025-04-25T03:32:35.3633366Z ./aviflip/client/src/components/Header.tsx
+2025-04-25T03:32:35.3633791Z ./aviflip/client/src/components/ui/
+2025-04-25T03:32:35.3634236Z ./aviflip/client/src/components/ui/toggle-group.tsx
+2025-04-25T03:32:35.3634990Z ./aviflip/client/src/components/ui/table.tsx
+2025-04-25T03:32:35.3635428Z ./aviflip/client/src/components/ui/avatar.tsx
+2025-04-25T03:32:35.3635887Z ./aviflip/client/src/components/ui/tooltip.tsx
+2025-04-25T03:32:35.3636356Z ./aviflip/client/src/components/ui/switch.tsx
+2025-04-25T03:32:35.3636824Z ./aviflip/client/src/components/ui/collapsible.tsx
+2025-04-25T03:32:35.3637330Z ./aviflip/client/src/components/ui/context-menu.tsx
+2025-04-25T03:32:35.3638272Z ./aviflip/client/src/components/ui/breadcrumb.tsx
+2025-04-25T03:32:35.3638791Z ./aviflip/client/src/components/ui/aspect-ratio.tsx
+2025-04-25T03:32:35.3639263Z ./aviflip/client/src/components/ui/sheet.tsx
+2025-04-25T03:32:35.3639706Z ./aviflip/client/src/components/ui/chart.tsx
+2025-04-25T03:32:35.3640141Z ./aviflip/client/src/components/ui/badge.tsx
+2025-04-25T03:32:35.3640574Z ./aviflip/client/src/components/ui/toggle.tsx
+2025-04-25T03:32:35.3641060Z ./aviflip/client/src/components/ui/scroll-area.tsx
+2025-04-25T03:32:35.3641553Z ./aviflip/client/src/components/ui/input-otp.tsx
+2025-04-25T03:32:35.3641847Z ./aviflip/client/src/components/ui/popover.tsx
+2025-04-25T03:32:35.3642141Z ./aviflip/client/src/components/ui/sidebar.tsx
+2025-04-25T03:32:35.3642437Z ./aviflip/client/src/components/ui/alert-dialog.tsx
+2025-04-25T03:32:35.3642744Z ./aviflip/client/src/components/ui/checkbox.tsx
+2025-04-25T03:32:35.3643045Z ./aviflip/client/src/components/ui/resizable.tsx
+2025-04-25T03:32:35.3643329Z ./aviflip/client/src/components/ui/progress.tsx
+2025-04-25T03:32:35.3643602Z ./aviflip/client/src/components/ui/drawer.tsx
+2025-04-25T03:32:35.3643869Z ./aviflip/client/src/components/ui/toast.tsx
+2025-04-25T03:32:35.3644127Z ./aviflip/client/src/components/ui/command.tsx
+2025-04-25T03:32:35.3644427Z ./aviflip/client/src/components/ui/separator.tsx
+2025-04-25T03:32:35.3644699Z ./aviflip/client/src/components/ui/slider.tsx
+2025-04-25T03:32:35.3645016Z ./aviflip/client/src/components/ui/hover-card.tsx
+2025-04-25T03:32:35.3645505Z ./aviflip/client/src/components/ui/dialog.tsx
+2025-04-25T03:32:35.3646001Z ./aviflip/client/src/components/ui/menubar.tsx
+2025-04-25T03:32:35.3646505Z ./aviflip/client/src/components/ui/dropdown-menu.tsx
+2025-04-25T03:32:35.3646992Z ./aviflip/client/src/components/ui/label.tsx
+2025-04-25T03:32:35.3647436Z ./aviflip/client/src/components/ui/tabs.tsx
+2025-04-25T03:32:35.3648100Z ./aviflip/client/src/components/ui/pagination.tsx
+2025-04-25T03:32:35.3648538Z ./aviflip/client/src/components/ui/form.tsx
+2025-04-25T03:32:35.3648805Z ./aviflip/client/src/components/ui/select.tsx
+2025-04-25T03:32:35.3649065Z ./aviflip/client/src/components/ui/alert.tsx
+2025-04-25T03:32:35.3649320Z ./aviflip/client/src/components/ui/card.tsx
+2025-04-25T03:32:35.3649603Z ./aviflip/client/src/components/ui/navigation-menu.tsx
+2025-04-25T03:32:35.3649911Z ./aviflip/client/src/components/ui/skeleton.tsx
+2025-04-25T03:32:35.3650177Z ./aviflip/client/src/components/ui/textarea.tsx
+2025-04-25T03:32:35.3650447Z ./aviflip/client/src/components/ui/carousel.tsx
+2025-04-25T03:32:35.3650713Z ./aviflip/client/src/components/ui/input.tsx
+2025-04-25T03:32:35.3650977Z ./aviflip/client/src/components/ui/accordion.tsx
+2025-04-25T03:32:35.3651251Z ./aviflip/client/src/components/ui/button.tsx
+2025-04-25T03:32:35.3651519Z ./aviflip/client/src/components/ui/radio-group.tsx
+2025-04-25T03:32:35.3651824Z ./aviflip/client/src/components/ui/toaster.tsx
+2025-04-25T03:32:35.3652091Z ./aviflip/client/src/components/ui/calendar.tsx
+2025-04-25T03:32:35.3652355Z ./aviflip/client/src/components/Footer.tsx
+2025-04-25T03:32:35.3652622Z ./aviflip/client/src/components/DropConvert.tsx
+2025-04-25T03:32:35.3652891Z ./aviflip/client/src/components/HowItWorks.tsx
+2025-04-25T03:32:35.3653156Z ./aviflip/client/src/components/DebugInfo.tsx
+2025-04-25T03:32:35.3653458Z ./aviflip/client/src/main.tsx
+2025-04-25T03:32:35.3653831Z ./aviflip/client/src/index.css
+2025-04-25T03:32:35.3654188Z ./aviflip/client/src/App.tsx
+2025-04-25T03:32:35.3654539Z ./aviflip/client/index.html
+2025-04-25T03:32:35.3655059Z ./aviflip/vite.config.ts
+2025-04-25T03:32:35.3655397Z ./aviflip/attached_assets/
+2025-04-25T03:32:35.3656619Z ./aviflip/attached_assets/Pasted--Extremely-Detailed-iPhone-Implementation-Guide-for-AVIFlip-This-comprehensive-guide-will-walk-you-1745524296932.txt
+2025-04-25T03:32:35.3658037Z ./aviflip/postcss.config.js
+2025-04-25T03:32:35.3658377Z ./aviflip/README.md
+2025-04-25T03:32:35.3658679Z ./jpgflip-standalone.html
+2025-04-25T03:32:35.3659008Z ./push_jpgflip.sh
+2025-04-25T03:32:35.3659289Z ./drizzle.config.ts
+2025-04-25T03:32:35.3659755Z ./tailwind.config.ts
+2025-04-25T03:32:35.3660052Z ./assets/
+2025-04-25T03:32:35.3660321Z ./assets/css/
+2025-04-25T03:32:35.3660591Z ./assets/css/style.css
+2025-04-25T03:32:35.3660886Z ./remove_index.sh
+2025-04-25T03:32:35.3661166Z ./package.json
+2025-04-25T03:32:35.3661450Z ./generated-icon.png
+2025-04-25T03:32:35.3661746Z ./shared/
+2025-04-25T03:32:35.3661998Z ./shared/schema.ts
+2025-04-25T03:32:35.3662266Z ./index.html
+2025-04-25T03:32:35.3662533Z ./package-lock.json
+2025-04-25T03:32:35.3662826Z ./components.json
+2025-04-25T03:32:35.3663116Z ./README_jpgflip.html
+2025-04-25T03:32:35.3663406Z ./tsconfig.json
+2025-04-25T03:32:35.3663678Z ./server/
+2025-04-25T03:32:35.3663855Z ./server/vite.ts
+2025-04-25T03:32:35.3664023Z ./server/routes.ts
+2025-04-25T03:32:35.3664191Z ./server/index.ts
+2025-04-25T03:32:35.3664351Z ./server/storage.ts
+2025-04-25T03:32:35.3664524Z ./jpgflip-full/
+2025-04-25T03:32:35.3664689Z ./jpgflip-full/CNAME
+2025-04-25T03:32:35.3664885Z ./jpgflip-full/drizzle.config.ts
+2025-04-25T03:32:35.3665117Z ./jpgflip-full/tailwind.config.ts
+2025-04-25T03:32:35.3665347Z ./jpgflip-full/remove_index.sh
+2025-04-25T03:32:35.3665555Z ./jpgflip-full/package.json
+2025-04-25T03:32:35.3665769Z ./jpgflip-full/generated-icon.png
+2025-04-25T03:32:35.3669173Z ./jpgflip-full/shared/
+2025-04-25T03:32:35.3669521Z ./jpgflip-full/shared/schema.ts
+2025-04-25T03:32:35.3669891Z ./jpgflip-full/index.html
+2025-04-25T03:32:35.3670237Z ./jpgflip-full/package-lock.json
+2025-04-25T03:32:35.3672736Z ./jpgflip-full/components.json
+2025-04-25T03:32:35.3673121Z ./jpgflip-full/tsconfig.json
+2025-04-25T03:32:35.3673456Z ./jpgflip-full/server/
+2025-04-25T03:32:35.3673781Z ./jpgflip-full/server/vite.ts
+2025-04-25T03:32:35.3674128Z ./jpgflip-full/server/routes.ts
+2025-04-25T03:32:35.3674495Z ./jpgflip-full/server/index.ts
+2025-04-25T03:32:35.3674843Z ./jpgflip-full/server/storage.ts
+2025-04-25T03:32:35.3675201Z ./jpgflip-full/client/
+2025-04-25T03:32:35.3675507Z ./jpgflip-full/client/src/
+2025-04-25T03:32:35.3675869Z ./jpgflip-full/client/src/config.ts
+2025-04-25T03:32:35.3676256Z ./jpgflip-full/client/src/workers/
+2025-04-25T03:32:35.3676704Z ./jpgflip-full/client/src/workers/conversion.worker.ts
+2025-04-25T03:32:35.3677201Z ./jpgflip-full/client/src/pages/
+2025-04-25T03:32:35.3677594Z ./jpgflip-full/client/src/pages/Home.tsx
+2025-04-25T03:32:35.3678216Z ./jpgflip-full/client/src/pages/not-found.tsx
+2025-04-25T03:32:35.3678638Z ./jpgflip-full/client/src/lib/
+2025-04-25T03:32:35.3679009Z ./jpgflip-full/client/src/lib/utils.ts
+2025-04-25T03:32:35.3679434Z ./jpgflip-full/client/src/lib/queryClient.ts
+2025-04-25T03:32:35.3679866Z ./jpgflip-full/client/src/lib/theme.ts
+2025-04-25T03:32:35.3680281Z ./jpgflip-full/client/src/hooks/
+2025-04-25T03:32:35.3680736Z ./jpgflip-full/client/src/hooks/use-conversion-worker.ts
+2025-04-25T03:32:35.3681246Z ./jpgflip-full/client/src/hooks/use-toast.ts
+2025-04-25T03:32:35.3681694Z ./jpgflip-full/client/src/hooks/use-mobile.tsx
+2025-04-25T03:32:35.3682139Z ./jpgflip-full/client/src/components/
+2025-04-25T03:32:35.3682589Z ./jpgflip-full/client/src/components/StepCard.tsx
+2025-04-25T03:32:35.3683132Z ./jpgflip-full/client/src/components/TechnicalDetails.tsx
+2025-04-25T03:32:35.3683667Z ./jpgflip-full/client/src/components/Header.tsx
+2025-04-25T03:32:35.3684115Z ./jpgflip-full/client/src/components/ui/
+2025-04-25T03:32:35.3684613Z ./jpgflip-full/client/src/components/ui/toggle-group.tsx
+2025-04-25T03:32:35.3685148Z ./jpgflip-full/client/src/components/ui/table.tsx
+2025-04-25T03:32:35.3685845Z ./jpgflip-full/client/src/components/ui/avatar.tsx
+2025-04-25T03:32:35.3686345Z ./jpgflip-full/client/src/components/ui/tooltip.tsx
+2025-04-25T03:32:35.3686851Z ./jpgflip-full/client/src/components/ui/switch.tsx
+2025-04-25T03:32:35.3687375Z ./jpgflip-full/client/src/components/ui/collapsible.tsx
+2025-04-25T03:32:35.3688112Z ./jpgflip-full/client/src/components/ui/context-menu.tsx
+2025-04-25T03:32:35.3688666Z ./jpgflip-full/client/src/components/ui/breadcrumb.tsx
+2025-04-25T03:32:35.3689372Z ./jpgflip-full/client/src/components/ui/aspect-ratio.tsx
+2025-04-25T03:32:35.3689910Z ./jpgflip-full/client/src/components/ui/sheet.tsx
+2025-04-25T03:32:35.3690392Z ./jpgflip-full/client/src/components/ui/chart.tsx
+2025-04-25T03:32:35.3690875Z ./jpgflip-full/client/src/components/ui/badge.tsx
+2025-04-25T03:32:35.3691361Z ./jpgflip-full/client/src/components/ui/toggle.tsx
+2025-04-25T03:32:35.3691886Z ./jpgflip-full/client/src/components/ui/scroll-area.tsx
+2025-04-25T03:32:35.3692421Z ./jpgflip-full/client/src/components/ui/input-otp.tsx
+2025-04-25T03:32:35.3692946Z ./jpgflip-full/client/src/components/ui/popover.tsx
+2025-04-25T03:32:35.3693460Z ./jpgflip-full/client/src/components/ui/sidebar.tsx
+2025-04-25T03:32:35.3693988Z ./jpgflip-full/client/src/components/ui/alert-dialog.tsx
+2025-04-25T03:32:35.3694528Z ./jpgflip-full/client/src/components/ui/checkbox.tsx
+2025-04-25T03:32:35.3695060Z ./jpgflip-full/client/src/components/ui/resizable.tsx
+2025-04-25T03:32:35.3695574Z ./jpgflip-full/client/src/components/ui/progress.tsx
+2025-04-25T03:32:35.3696093Z ./jpgflip-full/client/src/components/ui/drawer.tsx
+2025-04-25T03:32:35.3696583Z ./jpgflip-full/client/src/components/ui/toast.tsx
+2025-04-25T03:32:35.3697080Z ./jpgflip-full/client/src/components/ui/command.tsx
+2025-04-25T03:32:35.3697586Z ./jpgflip-full/client/src/components/ui/separator.tsx
+2025-04-25T03:32:35.3698244Z ./jpgflip-full/client/src/components/ui/slider.tsx
+2025-04-25T03:32:35.3698768Z ./jpgflip-full/client/src/components/ui/hover-card.tsx
+2025-04-25T03:32:35.3699282Z ./jpgflip-full/client/src/components/ui/dialog.tsx
+2025-04-25T03:32:35.3699786Z ./jpgflip-full/client/src/components/ui/menubar.tsx
+2025-04-25T03:32:35.3700333Z ./jpgflip-full/client/src/components/ui/dropdown-menu.tsx
+2025-04-25T03:32:35.3700872Z ./jpgflip-full/client/src/components/ui/label.tsx
+2025-04-25T03:32:35.3701355Z ./jpgflip-full/client/src/components/ui/tabs.tsx
+2025-04-25T03:32:35.3701874Z ./jpgflip-full/client/src/components/ui/pagination.tsx
+2025-04-25T03:32:35.3702395Z ./jpgflip-full/client/src/components/ui/form.tsx
+2025-04-25T03:32:35.3702887Z ./jpgflip-full/client/src/components/ui/select.tsx
+2025-04-25T03:32:35.3703400Z ./jpgflip-full/client/src/components/ui/alert.tsx
+2025-04-25T03:32:35.3703800Z ./jpgflip-full/client/src/components/ui/card.tsx
+2025-04-25T03:32:35.3704151Z ./jpgflip-full/client/src/components/ui/navigation-menu.tsx
+2025-04-25T03:32:35.3704492Z ./jpgflip-full/client/src/components/ui/skeleton.tsx
+2025-04-25T03:32:35.3704798Z ./jpgflip-full/client/src/components/ui/textarea.tsx
+2025-04-25T03:32:35.3705093Z ./jpgflip-full/client/src/components/ui/carousel.tsx
+2025-04-25T03:32:35.3705382Z ./jpgflip-full/client/src/components/ui/input.tsx
+2025-04-25T03:32:35.3705671Z ./jpgflip-full/client/src/components/ui/accordion.tsx
+2025-04-25T03:32:35.3705964Z ./jpgflip-full/client/src/components/ui/button.tsx
+2025-04-25T03:32:35.3706273Z ./jpgflip-full/client/src/components/ui/radio-group.tsx
+2025-04-25T03:32:35.3706582Z ./jpgflip-full/client/src/components/ui/toaster.tsx
+2025-04-25T03:32:35.3706876Z ./jpgflip-full/client/src/components/ui/calendar.tsx
+2025-04-25T03:32:35.3707161Z ./jpgflip-full/client/src/components/Footer.tsx
+2025-04-25T03:32:35.3707448Z ./jpgflip-full/client/src/components/DropConvert.tsx
+2025-04-25T03:32:35.3707880Z ./jpgflip-full/client/src/components/HowItWorks.tsx
+2025-04-25T03:32:35.3708204Z ./jpgflip-full/client/src/components/DebugInfo.tsx
+2025-04-25T03:32:35.3708682Z ./jpgflip-full/client/src/main.tsx
+2025-04-25T03:32:35.3709068Z ./jpgflip-full/client/src/index.css
+2025-04-25T03:32:35.3709771Z ./jpgflip-full/client/src/App.tsx
+2025-04-25T03:32:35.3710182Z ./jpgflip-full/client/index.html
+2025-04-25T03:32:35.3710471Z ./jpgflip-full/vite.config.ts
+2025-04-25T03:32:35.3710837Z ./jpgflip-full/attached_assets/
+2025-04-25T03:32:35.3712038Z ./jpgflip-full/attached_assets/Pasted--Extremely-Detailed-iPhone-Implementation-Guide-for-AVIFlip-This-comprehensive-guide-will-walk-you-1745524296932.txt
+2025-04-25T03:32:35.3713228Z ./jpgflip-full/postcss.config.js
+2025-04-25T03:32:35.3713678Z ./jpgflip-full/README.md
+2025-04-25T03:32:35.3713882Z ./client/
+2025-04-25T03:32:35.3714094Z ./client/src/
+2025-04-25T03:32:35.3714405Z ./client/src/config.ts
+2025-04-25T03:32:35.3714661Z ./client/src/workers/
+2025-04-25T03:32:35.3714870Z ./client/src/workers/conversion.worker.ts
+2025-04-25T03:32:35.3715113Z ./client/src/pages/
+2025-04-25T03:32:35.3715290Z ./client/src/pages/Home.tsx
+2025-04-25T03:32:35.3715574Z ./client/src/pages/not-found.tsx
+2025-04-25T03:32:35.3715923Z ./client/src/lib/
+2025-04-25T03:32:35.3716248Z ./client/src/lib/utils.ts
+2025-04-25T03:32:35.3716551Z ./client/src/lib/queryClient.ts
+2025-04-25T03:32:35.3716890Z ./client/src/lib/theme.ts
+2025-04-25T03:32:35.3717077Z ./client/src/hooks/
+2025-04-25T03:32:35.3717281Z ./client/src/hooks/use-conversion-worker.ts
+2025-04-25T03:32:35.3717615Z ./client/src/hooks/use-toast.ts
+2025-04-25T03:32:35.3718103Z ./client/src/hooks/use-mobile.tsx
+2025-04-25T03:32:35.3718334Z ./client/src/components/
+2025-04-25T03:32:35.3718588Z ./client/src/components/DropConvert-optimized.tsx
+2025-04-25T03:32:35.3718879Z ./client/src/components/StepCard.tsx
+2025-04-25T03:32:35.3719123Z ./client/src/components/TechnicalDetails.tsx
+2025-04-25T03:32:35.3719379Z ./client/src/components/Header.tsx
+2025-04-25T03:32:35.3719595Z ./client/src/components/ui/
+2025-04-25T03:32:35.3719816Z ./client/src/components/ui/toggle-group.tsx
+2025-04-25T03:32:35.3720057Z ./client/src/components/ui/table.tsx
+2025-04-25T03:32:35.3720292Z ./client/src/components/ui/avatar.tsx
+2025-04-25T03:32:35.3720610Z ./client/src/components/ui/tooltip.tsx
+2025-04-25T03:32:35.3721000Z ./client/src/components/ui/switch.tsx
+2025-04-25T03:32:35.3721318Z ./client/src/components/ui/collapsible.tsx
+2025-04-25T03:32:35.3721573Z ./client/src/components/ui/context-menu.tsx
+2025-04-25T03:32:35.3721828Z ./client/src/components/ui/breadcrumb.tsx
+2025-04-25T03:32:35.3722085Z ./client/src/components/ui/aspect-ratio.tsx
+2025-04-25T03:32:35.3722489Z ./client/src/components/ui/sheet.tsx
+2025-04-25T03:32:35.3722879Z ./client/src/components/ui/chart.tsx
+2025-04-25T03:32:35.3723113Z ./client/src/components/ui/badge.tsx
+2025-04-25T03:32:35.3723330Z ./client/src/components/ui/toggle.tsx
+2025-04-25T03:32:35.3723674Z ./client/src/components/ui/scroll-area.tsx
+2025-04-25T03:32:35.3724011Z ./client/src/components/ui/input-otp.tsx
+2025-04-25T03:32:35.3724263Z ./client/src/components/ui/popover.tsx
+2025-04-25T03:32:35.3724502Z ./client/src/components/ui/sidebar.tsx
+2025-04-25T03:32:35.3724740Z ./client/src/components/ui/alert-dialog.tsx
+2025-04-25T03:32:35.3724991Z ./client/src/components/ui/checkbox.tsx
+2025-04-25T03:32:35.3725231Z ./client/src/components/ui/resizable.tsx
+2025-04-25T03:32:35.3725476Z ./client/src/components/ui/progress.tsx
+2025-04-25T03:32:35.3725706Z ./client/src/components/ui/drawer.tsx
+2025-04-25T03:32:35.3726009Z ./client/src/components/ui/toast.tsx
+2025-04-25T03:32:35.3726356Z ./client/src/components/ui/command.tsx
+2025-04-25T03:32:35.3726605Z ./client/src/components/ui/separator.tsx
+2025-04-25T03:32:35.3726857Z ./client/src/components/ui/slider.tsx
+2025-04-25T03:32:35.3727095Z ./client/src/components/ui/hover-card.tsx
+2025-04-25T03:32:35.3727441Z ./client/src/components/ui/dialog.tsx
+2025-04-25T03:32:35.3727993Z ./client/src/components/ui/menubar.tsx
+2025-04-25T03:32:35.3728318Z ./client/src/components/ui/dropdown-menu.tsx
+2025-04-25T03:32:35.3728592Z ./client/src/components/ui/label.tsx
+2025-04-25T03:32:35.3729015Z ./client/src/components/ui/tabs.tsx
+2025-04-25T03:32:35.3729449Z ./client/src/components/ui/pagination.tsx
+2025-04-25T03:32:35.3729987Z ./client/src/components/ui/form.tsx
+2025-04-25T03:32:35.3730426Z ./client/src/components/ui/select.tsx
+2025-04-25T03:32:35.3730725Z ./client/src/components/ui/alert.tsx
+2025-04-25T03:32:35.3731004Z ./client/src/components/ui/card.tsx
+2025-04-25T03:32:35.3731414Z ./client/src/components/ui/navigation-menu.tsx
+2025-04-25T03:32:35.3731690Z ./client/src/components/ui/skeleton.tsx
+2025-04-25T03:32:35.3731927Z ./client/src/components/ui/textarea.tsx
+2025-04-25T03:32:35.3732301Z ./client/src/components/ui/carousel.tsx
+2025-04-25T03:32:35.3732537Z ./client/src/components/ui/input.tsx
+2025-04-25T03:32:35.3732772Z ./client/src/components/ui/accordion.tsx
+2025-04-25T03:32:35.3733135Z ./client/src/components/ui/button.tsx
+2025-04-25T03:32:35.3733536Z ./client/src/components/ui/radio-group.tsx
+2025-04-25T03:32:35.3733797Z ./client/src/components/ui/toaster.tsx
+2025-04-25T03:32:35.3734032Z ./client/src/components/ui/calendar.tsx
+2025-04-25T03:32:35.3734273Z ./client/src/components/Footer.tsx
+2025-04-25T03:32:35.3734585Z ./client/src/components/DropConvert.tsx
+2025-04-25T03:32:35.3735025Z ./client/src/components/HowItWorks.tsx
+2025-04-25T03:32:35.3735277Z ./client/src/components/DropConvert.tsx.bak
+2025-04-25T03:32:35.3735702Z ./client/src/components/DebugInfo.tsx
+2025-04-25T03:32:35.3736125Z ./client/src/main.tsx
+2025-04-25T03:32:35.3736448Z ./client/src/index.css
+2025-04-25T03:32:35.3736694Z ./client/src/App.tsx
+2025-04-25T03:32:35.3736913Z ./client/index.html
+2025-04-25T03:32:35.3737181Z ./vite.config.ts
+2025-04-25T03:32:35.3737365Z ./attached_assets/
+2025-04-25T03:32:35.3737564Z ./attached_assets/image_1745538834966.png
+2025-04-25T03:32:35.3737946Z ./attached_assets/content-1745540097810.md
+2025-04-25T03:32:35.3738200Z ./attached_assets/image_1745536279214.png
+2025-04-25T03:32:35.3738449Z ./attached_assets/screenshot-1745540095194.png
+2025-04-25T03:32:35.3738720Z ./attached_assets/screenshot-1745537840906.png
+2025-04-25T03:32:35.3738972Z ./attached_assets/image_1745538828133.png
+2025-04-25T03:32:35.3739205Z ./attached_assets/image_1745537417138.png
+2025-04-25T03:32:35.3739606Z ./attached_assets/image_1745536925291.png
+2025-04-25T03:32:35.3739976Z ./attached_assets/content-1745540097810.html
+2025-04-25T03:32:35.3740232Z ./attached_assets/image_1745540213912.png
+2025-04-25T03:32:35.3741315Z ./attached_assets/Pasted--Extremely-Detailed-iPhone-Implementation-Guide-for-AVIFlip-This-comprehensive-guide-will-walk-you-1745524296932.txt
+2025-04-25T03:32:35.3742541Z ./attached_assets/image_1745538818968.png
+2025-04-25T03:32:35.3742969Z ./attached_assets/image_1745541208705.png
+2025-04-25T03:32:35.3743388Z ./attached_assets/image_1745536993177.png
+2025-04-25T03:32:35.3743799Z ./attached_assets/image_1745543794791.png
+2025-04-25T03:32:35.3744237Z ./attached_assets/screenshot-1745539972274.png
+2025-04-25T03:32:35.3744691Z ./attached_assets/image_1745536978820.png
+2025-04-25T03:32:35.3745361Z ./attached_assets/Pasted-2025-04-24T23-37-06-952845Z-Cloning-repository-2025-04-24T23-37-07-618114Z-From-https-github-c-1745537934348.txt
+2025-04-25T03:32:35.3745947Z ./attached_assets/image_1745541459934.png
+2025-04-25T03:32:35.3746185Z ./attached_assets/image_1745541219797.png
+2025-04-25T03:32:35.3746416Z ./attached_assets/image_1745541233002.png
+2025-04-25T03:32:35.3746655Z ./attached_assets/image_1745546550751.png
+2025-04-25T03:32:35.3746886Z ./push_aviflip.sh
+2025-04-25T03:32:35.3747065Z ./push_to_github.sh
+2025-04-25T03:32:35.3747241Z ./README_jpgflip.md
+2025-04-25T03:32:35.3747423Z ./postcss.config.js
+2025-04-25T03:32:35.3747591Z ./README.md
+2025-04-25T03:32:35.3748266Z ##[endgroup]
+2025-04-25T03:32:35.3814350Z ##[group]Run actions/upload-artifact@v4
+2025-04-25T03:32:35.3814603Z with:
+2025-04-25T03:32:35.3814780Z   name: github-pages
+2025-04-25T03:32:35.3814996Z   path: /home/runner/work/_temp/artifact.tar
+2025-04-25T03:32:35.3815252Z   retention-days: 1
+2025-04-25T03:32:35.3815440Z   if-no-files-found: error
+2025-04-25T03:32:35.3815651Z   compression-level: 6
+2025-04-25T03:32:35.3815840Z   overwrite: false
+2025-04-25T03:32:35.3816168Z   include-hidden-files: false
+2025-04-25T03:32:35.3816385Z ##[endgroup]
+2025-04-25T03:32:35.5993072Z With the provided path, there will be 1 file uploaded
+2025-04-25T03:32:35.5998213Z Artifact name is valid!
+2025-04-25T03:32:35.5999503Z Root directory input is valid!
+2025-04-25T03:32:35.9027193Z Beginning upload of artifact content to blob storage
+2025-04-25T03:32:36.9622096Z Uploaded bytes 4698177
+2025-04-25T03:32:37.0399223Z Finished uploading artifact content to blob storage!
+2025-04-25T03:32:37.0422451Z SHA256 digest of uploaded artifact zip is 55430558dc9964d20153f27c11d0ad0a7f45b2103120aac23544ac721294a853
+2025-04-25T03:32:37.0423234Z Finalizing artifact upload
+2025-04-25T03:32:37.1767948Z Artifact github-pages.zip successfully finalized. Artifact ID 3006858801
+2025-04-25T03:32:37.1769814Z Artifact github-pages has been successfully uploaded! Final size is 4698177 bytes. Artifact ID is 3006858801
+2025-04-25T03:32:37.1778318Z Artifact download URL: https://github.com/brookcs3/aviflip/actions/runs/14656346061/artifacts/3006858801
+2025-04-25T03:32:37.1972014Z Post job cleanup.
+2025-04-25T03:32:37.3009467Z [command]/usr/bin/git version
+2025-04-25T03:32:37.3050449Z git version 2.49.0
+2025-04-25T03:32:37.3099068Z Temporarily overriding HOME='/home/runner/work/_temp/1f1884da-ea73-4a72-bfb1-2f70d08beed7' before making global git config changes
+2025-04-25T03:32:37.3100932Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-25T03:32:37.3105722Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/aviflip/aviflip
+2025-04-25T03:32:37.3152448Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-25T03:32:37.3196055Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-25T03:32:37.3466892Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-25T03:32:37.3495116Z http.https://github.com/.extraheader
+2025-04-25T03:32:37.3510386Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-04-25T03:32:37.3550511Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-25T03:32:37.3924814Z Cleaning up orphan processes

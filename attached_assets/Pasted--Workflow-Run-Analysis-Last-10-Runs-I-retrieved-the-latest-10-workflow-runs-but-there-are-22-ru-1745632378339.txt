@@ -1,0 +1,83 @@
+### Workflow Run Analysis (Last 10 Runs)
+I retrieved the latest 10 workflow runs but there are 22 runs in total. You can view the full list of workflow runs on GitHub [here](https://github.com/brookcs3/heicflip/actions).
+
+#### Summary of Recent Workflow Runs:
+1. **Run ID 14676483908:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676483908))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add tsconfig.node.json for build process"
+   - **Problem:** Likely related to the `tsconfig.node.json` file issues identified earlier.
+
+2. **Run ID 14676462188:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676462188))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/index.css"
+   - **Problem:** Build issues likely due to unresolved imports or missing dependencies.
+
+3. **Run ID 14676458040:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676458040))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/components/DropConvert-optimized.tsx"
+   - **Problem:** Build failures related to component paths or dependencies.
+
+4. **Run ID 14676457449:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676457449))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/components/TechnicalDetails.tsx"
+   - **Problem:** Missing or incorrectly referenced files.
+
+5. **Run ID 14676454163:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676454163))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/components/Footer.tsx"
+   - **Problem:** Build failure.
+
+6. **Run ID 14676452795:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676452795))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/lib/queryClient.ts"
+   - **Problem:** Dependency issues or misconfiguration.
+
+7. **Run ID 14676450959:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676450959))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/components/Header.tsx"
+   - **Problem:** Likely related to missing or misconfigured dependencies.
+
+8. **Run ID 14676450365:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676450365))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/lib/theme.ts"
+   - **Problem:** Build configuration issues.
+
+9. **Run ID 14676449418:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676449418))
+   - **Event:** Push
+   - **Conclusion:** Failure
+   - **Commit:** "Add client/src/main.tsx"
+   - **Problem:** Missing file or unresolved import in `main.tsx`.
+
+10. **Run ID 14676448366:** ([View Run](https://github.com/brookcs3/heicflip/actions/runs/14676448366))
+    - **Event:** Push
+    - **Conclusion:** Failure
+    - **Commit:** "Add client/src/App.tsx"
+    - **Problem:** Dependency or path issues during the build process.
+
+---
+
+### Workflow Configuration File Issue
+Unfortunately, I could not fetch the `.github/workflows/github-pages.yml` file due to tool limitations.
+
+---
+
+### Next Steps:
+1. **Analyze Workflow Configuration:**
+   - I recommend reviewing the `.github/workflows/github-pages.yml` file directly and checking for misconfigurations.
+   - Verify that the build steps align with the project dependencies and file paths.
+
+2. **Ensure Dependencies Are Installed:**
+   - Confirm all required dependencies are listed in `package.json` and properly installed.
+
+3. **Validate File Paths:**
+   - Ensure all referenced files (e.g., `main.tsx`, `tsconfig.node.json`) exist in the repository and are correctly referenced in the workflow.
+
+Let me know if you'd like more specific assistance!

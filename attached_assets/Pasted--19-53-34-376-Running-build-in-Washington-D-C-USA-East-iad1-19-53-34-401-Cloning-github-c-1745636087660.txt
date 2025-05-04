@@ -1,0 +1,42 @@
+[19:53:34.376] Running build in Washington, D.C., USA (East) – iad1
+[19:53:34.401] Cloning github.com/brookcs3/heicflip (Branch: main, Commit: f2140ec)
+[19:53:34.587] Previous build caches not available
+[19:53:34.607] Cloning completed: 205.000ms
+[19:53:34.902] Running "vercel build"
+[19:53:35.298] Vercel CLI 41.6.2
+[19:53:35.412] WARN! Due to `builds` existing in your configuration file, the Build and Development Settings defined in your Project Settings will not apply. Learn More: https://vercel.link/unused-build-settings
+[19:53:35.802] Installing dependencies...
+[19:54:03.254] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[19:54:03.444] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[19:54:03.511] npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+[19:54:03.541] npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+[19:54:04.992] npm warn deprecated input-otp@0.2.4: please run: npm install input-otp@latest (or 1.1.0)
+[19:54:18.861] 
+[19:54:18.861] added 543 packages in 43s
+[19:54:18.861] 
+[19:54:18.861] 73 packages are looking for funding
+[19:54:18.861]   run `npm fund` for details
+[19:54:19.093] Running "npm run build"
+[19:54:19.310] 
+[19:54:19.310] > heicflip@1.0.0 build
+[19:54:19.311] > vite build
+[19:54:19.311] 
+[19:54:20.427] [36mvite v5.4.18 [32mbuilding for production...[36m[39m
+[19:54:20.771] transforming...
+[19:54:21.200] [32m✓[39m 4 modules transformed.
+[19:54:21.202] [31mx[39m Build failed in 500ms
+[19:54:21.203] [31merror during build:
+[19:54:21.203] [31m[@tailwindcss/vite:generate:build] Cannot apply unknown utility class: border-border[31m
+[19:54:21.203] file: [36m/vercel/path0/client/src/index.css[31m
+[19:54:21.203]     at onInvalidCandidate (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:20:348)
+[19:54:21.203]     at ce (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:15:29596)
+[19:54:21.203]     at Re (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:20:311)
+[19:54:21.204]     at zr (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:36:784)
+[19:54:21.204]     at async Yi (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:36:1079)
+[19:54:21.204]     at async Xa (file:///vercel/path0/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/chunk-QMW34FGX.mjs:36:1807)
+[19:54:21.204]     at async ta (file:///vercel/path0/node_modules/@tailwindcss/node/dist/index.mjs:12:3355)
+[19:54:21.204]     at async R.generate (file:///vercel/path0/node_modules/@tailwindcss/vite/dist/index.mjs:1:3511)
+[19:54:21.204]     at async Object.transform (file:///vercel/path0/node_modules/@tailwindcss/vite/dist/index.mjs:1:2313)
+[19:54:21.204]     at async transform (file:///vercel/path0/node_modules/rollup/dist/es/shared/node-entry.js:20906:16)[39m
+[19:54:21.227] Error: Command "npm run build" exited with 1
+[19:54:21.625] 

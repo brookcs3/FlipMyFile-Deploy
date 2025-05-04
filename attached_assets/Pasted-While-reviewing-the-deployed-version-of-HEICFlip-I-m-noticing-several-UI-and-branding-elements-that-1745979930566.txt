@@ -1,0 +1,34 @@
+While reviewing the deployed version of HEICFlip, I’m noticing several UI and branding elements that are highly specific to this variant, and I want to confirm that these are all being accounted for in the create-variant.sh script when generating new format pairs.
+
+For example, if we later decide to spin off a new variant — let’s say mp4ToMovFlip with a greenish visual theme — I want to make sure we’re not inadvertently carrying over styling, SVGs, or phrasing from HEICFlip that are tied to the HEIC→JPG use case. That kind of leakage would create a confusing and visually inconsistent experience in the new tool.
+
+Can you confirm whether the script is currently using simple regex, structural pattern matching, AST parsing, or another method to identify these elements? And does it distinguish between logic, text, and style assets? If not, this could become an area where we introduce persistent bugs or branding mismatches without realizing it.
+
+To make sure we’re aligned, here’s a list of elements I’ve identified so far that are specific to the HEICFlip template and should be treated as swappable tokens in future variants:
+
+⸻
+
+Visual Theme (Style-Specific)
+	•	Primary Color: Bright orange (#F28500 or similar).
+	•	Accent Color Usage: Used in buttons, toggles, drop zones, and hover states.
+	•	Drop Shadows: Slight glow/blur under buttons and toggles, in an orange hue.
+	•	SVG Icon: The orange circular play button in the top-left header.
+	•	Orange Dashed Drop Zone Border: Styled element around the file input box.
+	•	Conversion Direction Toggle: Styled switch with orange highlight for active direction.
+
+Semantic and Format-Coupled Language
+	•	“Convert HEIC to JPG” — this string appears in:
+	•	Main headline
+	•	Switch toggle labels
+	•	Upload box
+	•	Success messages
+	•	FAQs
+	•	File type references in instructions: “Convert HEIC to widely-compatible JPG format”
+	•	The internal logic likely references .heic, .jpg, heicToJpg, etc.
+	•	FAQ mentions of “HEIC” and “JPG” throughout — these would need to be rewritten in variant-specific terms.
+	•	Specific feature references like “batch HEIC conversion”, “HEIC privacy”, etc.
+
+Technical Details That May Be Hardcoded
+	•	“Currently, we support HEIC, JPG, JPEG, and PNG”
+	•	Headings like “What is a HEIC file and why would I need to convert it?”
+	•	Even the footer includes “© 2025 HEICFlip” — this must be auto-updated

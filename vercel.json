@@ -1,0 +1,51 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/ffmpeg-demo",
+      "destination": "/ffmpeg-demo/index.html"
+    },
+    {
+      "source": "/ffmpeg-demo.html",
+      "destination": "/ffmpeg-demo/index.html"
+    },
+    {
+      "source": "/experimental",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/auto-detect",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/any-format",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

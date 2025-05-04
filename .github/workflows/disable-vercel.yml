@@ -1,0 +1,17 @@
+name: Disable Vercel Deployments
+
+# This workflow is a placeholder to disable automatic Vercel deployments
+# It doesn't perform any actions, just documents that Vercel deployments are manually controlled
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No automatic deployments
+        run: echo "Automatic Vercel deployments are disabled. Deploy manually using the deploy-to-vercel.sh script."

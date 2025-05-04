@@ -1,7 +1,7 @@
 ```markdown
 # FlipMyFile: Comprehensive Format Transformation System
 
-A sophisticated developer toolchain for intelligent file format conversion, focusing on advanced transformation techniques for images, videos, and audio files.
+A sophisticated developer toolchain for intelligent file format conversion, focusing on advanced transformation techniques for images, videos, and audio files. Designed for deployment with modern CI/CD pipelines.
 
 ## Key Technologies
 
@@ -59,8 +59,8 @@ A sophisticated developer toolchain for intelligent file format conversion, focu
 
 ```bash
 # Clone the repository
-git clone https://github.com/brookcs3/FlipMyFile.git
-cd FlipMyFile
+git clone https://github.com/brookcs3/FlipMyFile-Deploy.git
+cd FlipMyFile-Deploy
 
 # Install dependencies
 npm install
@@ -96,8 +96,8 @@ node --version
 
 2. Clone the repository and install dependencies
 ```bash
-git clone https://github.com/brookcs3/FlipMyFile.git
-cd FlipMyFile
+git clone https://github.com/brookcs3/FlipMyFile-Deploy.git
+cd FlipMyFile-Deploy
 npm install
 ```
 

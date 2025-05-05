@@ -21,7 +21,10 @@ import {
   Info,
   ArrowLeftRight,
   Upload,
-  Eye
+  Eye,
+  FileVideo,
+  FileAudio,
+  File
 } from 'lucide-react';
 import {
   formatFileSize,
@@ -30,6 +33,13 @@ import {
   createDownloadUrl
 } from '@/lib/utils';
 import { siteConfig } from '../config';
+import { 
+  imageFormats,
+  videoFormats,
+  audioFormats,
+  getFileType,
+  getCompatibleFormats
+} from '@/utils/formatLists';
 
 // Type for our accepted files
 interface AcceptedFile extends File {
@@ -53,8 +63,12 @@ function DropConvertExperimentalInner() {
   const [processingFile, setProcessingFile] = useState<number>(0);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [fileCount, setFileCount] = useState<number>(0); // Store file count for later reference
+  
+  // New state for file type and format handling
+  const [selectedFileType, setSelectedFileType] = useState<'image' | 'video' | 'audio' | 'unknown'>('image');
   const [selectedFormat, setSelectedFormat] = useState('jpg'); // New format selection
   const [previewUrl, setPreviewUrl] = useState<string | null>(null); // For file preview
+  const [availableFormats, setAvailableFormats] = useState<string[]>([]);
   
   // Conversion options
   const [conversionOptions, setConversionOptions] = useState<ConversionOptions>({
@@ -68,18 +82,31 @@ function DropConvertExperimentalInner() {
     siteConfig.defaultConversionMode === 'jpgToHeic'
   );
   
+  // Update available formats when file type changes
+  useEffect(() => {
+    const formats = getCompatibleFormats(selectedFileType);
+    setAvailableFormats(formats);
+    
+    // Set the default format for the selected file type if there are available formats
+    if (formats.length > 0 && (!selectedFormat || !formats.includes(selectedFormat.toUpperCase()))) {
+      setSelectedFormat(formats[0].toLowerCase());
+    }
+  }, [selectedFileType]);
+  
   // Generate file previews when files are selected
   useEffect(() => {
     if (files.length > 0) {
+      // Detect the file type
+      const detectedType = getFileType(files[0]);
+      setSelectedFileType(detectedType);
+      
       // Only create preview for the first file
       const firstFile = files[0];
-      const fileName = firstFile.name.toLowerCase();
       
       // Create preview based on file type
-      if (firstFile.type.startsWith('image/') || fileName.endsWith('.heic')) {
-        // If it's a HEIC file we can't preview it directly, so show a placeholder
-        if (fileName.endsWith('.heic')) {
-          // We'll just show a placeholder for HEIC files
+      if (firstFile.type.startsWith('image/')) {
+        // For HEIC files we can't preview directly, so show a placeholder
+        if (firstFile.name.toLowerCase().endsWith('.heic')) {
           setPreviewUrl(null);
         } else {
           // For JPG/PNG/other image formats we can create a preview
@@ -93,9 +120,7 @@ function DropConvertExperimentalInner() {
           };
         }
       } else if (firstFile.type.startsWith('video/') || 
-                fileName.endsWith('.mp4') || 
-                fileName.endsWith('.webm') || 
-                fileName.endsWith('.mov')) {
+                firstFile.name.toLowerCase().match(/\.(mp4|webm|mov|gif)$/)) {
         // Create video preview
         const videoUrl = URL.createObjectURL(firstFile);
         setPreviewUrl(videoUrl);
@@ -130,46 +155,35 @@ function DropConvertExperimentalInner() {
       setDownloadUrl(null);
     }
     
-    const acceptedMediaFiles = acceptedFiles.filter(file =>
-      // Image formats
-      file.name.toLowerCase().endsWith('.heic') ||
-      file.name.toLowerCase().endsWith('.png') ||
-      file.name.toLowerCase().endsWith('.jpg') ||
-      file.name.toLowerCase().endsWith('.jpeg') ||
-      file.name.toLowerCase().endsWith('.webp') ||
-      // Video formats
-      file.name.toLowerCase().endsWith('.mp4') ||
-      file.name.toLowerCase().endsWith('.mov') ||
-      file.name.toLowerCase().endsWith('.webm') ||
-      file.name.toLowerCase().endsWith('.gif')
-    );
-    
-    if (acceptedMediaFiles.length === 0) {
-      setStatus('error');
-      setErrorMessage('Please select supported media files (images or videos)');
+    if (acceptedFiles.length === 0) {
       return;
     }
     
-    // Always set status to 'ready' instead of auto-processing when files are added
-    setFiles(acceptedMediaFiles);
+    // Set status to 'ready' when files are added
+    setFiles(acceptedFiles);
     setStatus('ready'); // This ensures the user needs to click convert
     setProgress(0);
+    
+    // Auto-detect file type from the first file
+    if (acceptedFiles.length > 0) {
+      const detectedType = getFileType(acceptedFiles[0]);
+      setSelectedFileType(detectedType);
+    }
   }, [downloadUrl]);
+  
+  // Create accept object for dropzone based on selected file type
+  const getAcceptConfig = useMemo(() => {
+    // Return accept object for all supported file types
+    return {
+      'image/*': Object.keys(imageFormats).map(format => `.${format}`),
+      'video/*': Object.keys(videoFormats).map(format => `.${format}`),
+      'audio/*': Object.keys(audioFormats).map(format => `.${format}`),
+    };
+  }, []);
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: {
-      // Image formats
-      'image/heic': ['.heic'],
-      'image/png': ['.png'],
-      'image/jpeg': ['.jpg', '.jpeg'],
-      'image/webp': ['.webp'],
-      // Video formats
-      'video/mp4': ['.mp4'],
-      'video/quicktime': ['.mov'],
-      'video/webm': ['.webm'],
-      'image/gif': ['.gif']
-    },
+    accept: getAcceptConfig,
   });
   
   // Check browser capabilities for optimized processing
@@ -324,6 +338,7 @@ function DropConvertExperimentalInner() {
           type: processingType,
           files,
           jpgToAvif, // Include conversion mode
+          selectedFormat, // Add selected format to the message
           totalFiles, // Pass the actual file count to ensure worker has it
           isSingleFile: totalFiles === 1,
           conversionOptions // Pass quality and resize options
@@ -348,11 +363,17 @@ function DropConvertExperimentalInner() {
     setErrorMessage('');
   };
   
+  // Function to handle file type selection change
+  const handleFileTypeChange = (type: string) => {
+    setSelectedFileType(type as 'image' | 'video' | 'audio' | 'unknown');
+  };
+  
   // Function to handle format selection change
   const handleFormatChange = (format: string) => {
-    setSelectedFormat(format);
-    // Update jpgToAvif based on format
-    setJpgToAvif(format === 'heic');
+    setSelectedFormat(format.toLowerCase());
+    
+    // Update jpgToAvif based on format (legacy support)
+    setJpgToAvif(format.toLowerCase() === 'heic');
   };
   
   // Function to handle quality selection
@@ -371,6 +392,20 @@ function DropConvertExperimentalInner() {
     }));
   };
   
+  // Get the appropriate icon based on file type
+  const getFileTypeIcon = () => {
+    switch (selectedFileType) {
+      case 'image':
+        return <FileImage className="h-6 w-6 text-blue-500" />;
+      case 'video':
+        return <FileVideo className="h-6 w-6 text-purple-500" />;
+      case 'audio':
+        return <FileAudio className="h-6 w-6 text-green-500" />;
+      default:
+        return <File className="h-6 w-6 text-gray-500" />;
+    }
+  };
+  
   // Render the modern experimental UI
   return (
     <div className="flex flex-col space-y-4 w-full max-w-4xl mx-auto">
@@ -380,7 +415,7 @@ function DropConvertExperimentalInner() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-3">
             <div>
               <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                <FileImage className="h-6 w-6 text-blue-500" />
+                {getFileTypeIcon()}
                 Convert Media Files
               </CardTitle>
               <CardDescription className="mt-1">
@@ -414,7 +449,7 @@ function DropConvertExperimentalInner() {
         </CardHeader>
         
         <CardContent className="p-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x">
+          <div className="grid grid-cols-1 md:grid-cols-2 divide-x divide-gray-100">
             {/* Left Side - File Preview and Info */}
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
@@ -467,8 +502,8 @@ function DropConvertExperimentalInner() {
                   </div>
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gray-50">
-                    <FileImage className="mx-auto h-10 w-10 text-blue-500 mb-2" />
-                    <p className="text-gray-600 font-medium">
+                    {getFileTypeIcon()}
+                    <p className="text-gray-600 font-medium mt-3">
                       {files.length} file{files.length !== 1 ? 's' : ''} selected
                     </p>
                     <p className="text-gray-400 text-sm mt-1">
@@ -499,7 +534,10 @@ function DropConvertExperimentalInner() {
                   {files.map((file, index) => (
                     <div key={`${file.name}-${index}`} className="flex items-center justify-between py-2 px-3 text-sm border-b last:border-0 border-gray-100">
                       <div className="flex items-center gap-2 truncate pr-2">
-                        <FileImage className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                        {selectedFileType === 'image' && <FileImage className="h-4 w-4 text-gray-400 flex-shrink-0" />}
+                        {selectedFileType === 'video' && <FileVideo className="h-4 w-4 text-gray-400 flex-shrink-0" />}
+                        {selectedFileType === 'audio' && <FileAudio className="h-4 w-4 text-gray-400 flex-shrink-0" />}
+                        {selectedFileType === 'unknown' && <File className="h-4 w-4 text-gray-400 flex-shrink-0" />}
                         <span className="truncate">{file.name}</span>
                       </div>
                       <span className="text-gray-400 text-xs flex-shrink-0">{formatFileSize(file.size)}</span>
@@ -530,15 +568,14 @@ function DropConvertExperimentalInner() {
                     {/* Select File Type */}
                     <div>
                       <h2 className="text-lg font-medium mb-4">File Type</h2>
-                      <Select value={files[0]?.type?.startsWith('video/') || 
-                              files[0]?.name?.toLowerCase().match(/\.(mp4|webm|mov|gif)$/) ? 'video' : 'image'} 
-                              disabled={files.length === 0}>
+                      <Select value={selectedFileType} onValueChange={handleFileTypeChange}>
                         <SelectTrigger className="h-12 text-base">
                           <SelectValue placeholder="Detected automatically" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="image">Image</SelectItem>
                           <SelectItem value="video">Video</SelectItem>
+                          <SelectItem value="audio">Audio</SelectItem>
                         </SelectContent>
                       </Select>
                       <p className="text-sm text-gray-500 mt-2">File type is detected automatically from your selection</p>
@@ -552,20 +589,38 @@ function DropConvertExperimentalInner() {
                           <SelectValue placeholder="Select target format" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectGroup>
-                            <SelectLabel>Images</SelectLabel>
-                            <SelectItem value="jpg">JPG</SelectItem>
-                            <SelectItem value="heic">HEIC</SelectItem>
-                            <SelectItem value="png">PNG</SelectItem>
-                            <SelectItem value="webp">WebP</SelectItem>
-                          </SelectGroup>
-                          <SelectGroup>
-                            <SelectLabel>Videos</SelectLabel>
-                            <SelectItem value="mp4">MP4</SelectItem>
-                            <SelectItem value="webm">WebM</SelectItem>
-                            <SelectItem value="mov">MOV</SelectItem>
-                            <SelectItem value="gif">GIF</SelectItem>
-                          </SelectGroup>
+                          {selectedFileType === 'image' && (
+                            <SelectGroup>
+                              <SelectLabel>Images</SelectLabel>
+                              {Object.values(imageFormats).map(format => (
+                                <SelectItem key={format.extension} value={format.extension}>
+                                  {format.label} - {format.description}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                          )}
+                          
+                          {selectedFileType === 'video' && (
+                            <SelectGroup>
+                              <SelectLabel>Videos</SelectLabel>
+                              {Object.values(videoFormats).map(format => (
+                                <SelectItem key={format.extension} value={format.extension}>
+                                  {format.label} - {format.description}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                          )}
+                          
+                          {selectedFileType === 'audio' && (
+                            <SelectGroup>
+                              <SelectLabel>Audio</SelectLabel>
+                              {Object.values(audioFormats).map(format => (
+                                <SelectItem key={format.extension} value={format.extension}>
+                                  {format.label} - {format.description}
+                                </SelectItem>
+                              ))}
+                            </SelectGroup>
+                          )}
                         </SelectContent>
                       </Select>
                     </div>
